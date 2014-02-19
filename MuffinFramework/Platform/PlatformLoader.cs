@@ -1,9 +1,11 @@
-﻿namespace MuffinFramework.Platform
+﻿using System.ComponentModel.Composition.Primitives;
+
+namespace MuffinFramework.Platform
 {
     public class PlatformLoader : LayerLoader<PlatformBase, PlatformArgs>
     {
-        public PlatformLoader()
-            : base(new PlatformArgs())
+        public PlatformLoader(ComposablePartCatalog catalog)
+            : base(catalog, new PlatformArgs())
         {
         }
     }

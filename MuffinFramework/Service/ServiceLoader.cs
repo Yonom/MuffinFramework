@@ -1,11 +1,12 @@
-﻿using MuffinFramework.Platform;
+﻿using System.ComponentModel.Composition.Primitives;
+using MuffinFramework.Platform;
 
 namespace MuffinFramework.Service
 {
     public class ServiceLoader : LayerLoader<ServiceBase, ServiceArgs>
     {
-        public ServiceLoader(PlatformLoader platformLoader)
-            : base(new ServiceArgs(platformLoader))
+        public ServiceLoader(ComposablePartCatalog catalog, PlatformLoader platformLoader)
+            : base(catalog, new ServiceArgs(platformLoader))
         {
         }
     }

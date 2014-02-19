@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.ComponentModel.Composition.Primitives;
 using System.Linq;
-using System.Reflection;
 
 namespace MuffinFramework
 {
-    public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs> where TLayer : class, ILayerBase<TArgs>
+    public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs>, IDisposable where TLayer : class, ILayerBase<TArgs>
     {
+        [ImportMany]
+        private TLayer[] _importedLayers = null;
+
+        private CompositionContainer _container;
+
+
         public event EventHandler LoadingComplete;
 
         private void OnLoadingComplete()
@@ -17,9 +23,6 @@ namespace MuffinFramework
             EventHandler handler = LoadingComplete;
             if (handler != null) handler(this, EventArgs.Empty);
         }
-
-        [ImportMany] 
-        private TLayer[] _importedLayers = null;
 
         private readonly List<TLayer> _layers = new List<TLayer>();
 
@@ -33,9 +36,9 @@ namespace MuffinFramework
             get { return _layers.Cast<ILayerBase<TArgs>>().ToList().AsReadOnly(); }
         }
 
-        public LayerLoader(TArgs args)
+        public LayerLoader(ComposablePartCatalog catalog, TArgs args)
         {
-            var container = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
+            var container = new CompositionContainer(catalog);
             container.ComposeParts(this);
 
             foreach (var l in _importedLayers)
@@ -50,6 +53,11 @@ namespace MuffinFramework
         public TType Get<TType>() where TType : class, ILayerBase<TArgs>
         {
             return _layers.OfType<TType>().FirstOrDefault();
+        }
+
+        public void Dispose()
+        {
+            _container.Dispose();
         }
     }
 }
