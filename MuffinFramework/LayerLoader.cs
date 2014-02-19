@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
@@ -9,13 +10,27 @@ namespace MuffinFramework
 {
     public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs> where TLayer : class, ILayerBase<TArgs>
     {
-        [ImportMany] private TLayer[] _importedLayers = null;
+        public event EventHandler LoadingComplete;
+
+        private void OnLoadingComplete()
+        {
+            EventHandler handler = LoadingComplete;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        [ImportMany] 
+        private TLayer[] _importedLayers = null;
 
         private readonly List<TLayer> _layers = new List<TLayer>();
 
         public ReadOnlyCollection<TLayer> Layers
         {
-            get { return _layers.ToList().AsReadOnly(); }
+            get { return _layers.AsReadOnly(); }
+        }
+
+        ReadOnlyCollection<ILayerBase<TArgs>> ILayerLoader<TArgs>.Layers
+        {
+            get { return _layers.Cast<ILayerBase<TArgs>>().ToList().AsReadOnly(); }
         }
 
         public LayerLoader(TArgs args)
@@ -28,15 +43,13 @@ namespace MuffinFramework
                 l.Enable(this, args);
                 _layers.Add(l);
             }
+
+            OnLoadingComplete();
         }
 
         public TType Get<TType>() where TType : class, ILayerBase<TArgs>
         {
-            foreach (var l in _layers)
-            {
-                var res = l as TType;
-            }
-            return null;
+            return _layers.OfType<TType>().FirstOrDefault();
         }
     }
 }
