@@ -21,12 +21,6 @@ namespace MuffinFramework
             Catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetCallingAssembly()));
         }
 
-        // Not public as we are handling the disposal of the Catalog
-        private MuffinClient(ComposablePartCatalog catalog)
-        {
-            
-        }
-
         public void Start()
         {
             PlatformLoader = new PlatformLoader(Catalog);
