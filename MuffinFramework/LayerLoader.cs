@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace MuffinFramework
 {
-    public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs>, IDisposable where TLayer : class, ILayerBase<TArgs>
+    public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs> where TLayer : class, ILayerBase<TArgs>
     {
         private readonly object _lockObj = new object();
         [ImportMany]

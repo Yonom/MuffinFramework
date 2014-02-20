@@ -3,7 +3,7 @@ using MuffinFramework.Muffin;
 
 namespace TestProject.Muffins
 {
-    public class TestMuffin : MuffinBase
+    public class TestMuffin : Muffin
     {
         protected override void Enable()
         {

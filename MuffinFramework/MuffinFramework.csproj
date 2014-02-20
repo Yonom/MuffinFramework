@@ -42,19 +42,26 @@
   <ItemGroup>
     <Compile Include="ILayerBase.cs" />
     <Compile Include="ILayerLoader.cs" />
+    <Compile Include="ILayerPart.cs" />
     <Compile Include="LayerBase.cs" />
     <Compile Include="LayerLoader.cs" />
     <Compile Include="MuffinClient.cs" />
+    <Compile Include="Muffin\Muffin.cs" />
     <Compile Include="Muffin\MuffinArgs.cs" />
     <Compile Include="Muffin\MuffinBase.cs" />
     <Compile Include="Muffin\MuffinLoader.cs" />
+    <Compile Include="Muffin\MuffinPart.cs" />
+    <Compile Include="Platform\Platform.cs" />
     <Compile Include="Platform\PlatformArgs.cs" />
     <Compile Include="Platform\PlatformBase.cs" />
     <Compile Include="Platform\PlatformLoader.cs" />
+    <Compile Include="Platform\PlatformPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Service.cs" />
     <Compile Include="Service\ServiceArgs.cs" />
     <Compile Include="Service\ServiceBase.cs" />
     <Compile Include="Service\ServiceLoader.cs" />
+    <Compile Include="Service\ServicePart.cs" />
     <Compile Include="UnknownLayerException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

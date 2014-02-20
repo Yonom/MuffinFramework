@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.Composition;
-using MuffinFramework.Platform;
+﻿using MuffinFramework.Platform;
 using MuffinFramework.Service;
 
 namespace MuffinFramework.Muffin
 {
-    [InheritedExport(typeof(MuffinBase))]
     public abstract class MuffinBase : LayerBase<MuffinArgs>
     {
         protected PlatformLoader PlatformLoader;

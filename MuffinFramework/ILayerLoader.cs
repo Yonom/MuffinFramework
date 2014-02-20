@@ -4,7 +4,7 @@ using System.ComponentModel.Composition.Primitives;
 
 namespace MuffinFramework
 {
-    public interface ILayerLoader<TArgs> : IEnumerable<ILayerBase<TArgs>>
+    public interface ILayerLoader<TArgs> : IEnumerable<ILayerBase<TArgs>>, IDisposable
     {
         bool IsEnabled { get; }
         event EventHandler EnableComplete;
