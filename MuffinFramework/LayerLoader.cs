@@ -16,7 +16,7 @@ namespace MuffinFramework
         private TLayer[] _importedLayers = null;
         private CompositionContainer _container;
 
-        public bool Enabled { get; private set; }
+        public bool IsEnabled { get; private set; }
 
         public event EventHandler EnableComplete;
         private void OnEnableComplete()
@@ -33,16 +33,15 @@ namespace MuffinFramework
 
         public void Enable(ComposablePartCatalog catalog, TArgs args)
         {
-            _container = new CompositionContainer(catalog);
-            _container.ComposeParts(this);
-
             lock (_lockObj)
             {
-                if (Enabled)
-                    return;
-                Enabled = true;
+                if (IsEnabled)
+                    throw new InvalidOperationException("LayerLoader has already been enabled.");
+                IsEnabled = true;
             }
 
+            _container = new CompositionContainer(catalog);
+            _container.ComposeParts(this);
 
             foreach (var l in _importedLayers)
             {
@@ -64,6 +63,7 @@ namespace MuffinFramework
                 throw new UnknownLayerException(string.Format("Requested Type was not found: {0}", typeof(TType)), ex);
             }
         }
+
         public IEnumerator<ILayerBase<TArgs>> GetEnumerator()
         {
             return _layers.Cast<ILayerBase<TArgs>>().GetEnumerator();

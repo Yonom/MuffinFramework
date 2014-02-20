@@ -1,12 +1,22 @@
-﻿namespace MuffinFramework
+﻿using System;
+
+namespace MuffinFramework
 {
     public abstract class LayerBase<TArgs> : ILayerBase<TArgs>
     {
-        protected TArgs Args;
+        private readonly object _lockObj = new object();
 
-        public void Enable(TArgs args)
+        public bool IsEnabled { get; private set; }
+
+        public virtual void Enable(TArgs args)
         {
-            Args = args;
+            lock (_lockObj)
+            {
+                if (IsEnabled)
+                    throw new InvalidOperationException("LayerBase has already been enabled.");
+                IsEnabled = true;
+            }
+
             Enable();
         }
 
