@@ -74,7 +74,7 @@ namespace MuffinFramework
             return GetEnumerator();
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             if (_container != null)
                 _container.Dispose();

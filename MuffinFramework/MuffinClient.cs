@@ -41,7 +41,7 @@ namespace MuffinFramework
             MuffinLoader.Enable(Catalog, new MuffinArgs(PlatformLoader, ServiceLoader, MuffinLoader));
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Catalog.Dispose();
             PlatformLoader.Dispose();

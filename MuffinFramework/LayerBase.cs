@@ -35,7 +35,7 @@ namespace MuffinFramework
             return part;
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             foreach (var part in _parts)
             {
