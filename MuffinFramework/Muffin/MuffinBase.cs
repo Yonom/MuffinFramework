@@ -3,7 +3,7 @@
 namespace MuffinFramework.Muffin
 {
     [InheritedExport(typeof(MuffinBase))]
-    public abstract class MuffinBase : LayerBase<MuffinLoader, MuffinArgs>
+    public abstract class MuffinBase : LayerBase<MuffinArgs>
     {
     }
 }

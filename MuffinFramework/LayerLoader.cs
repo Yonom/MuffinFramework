@@ -11,7 +11,7 @@ namespace MuffinFramework
 {
     public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs>, IDisposable where TLayer : class, ILayerBase<TArgs>
     {
-        private object _lockObj = new object();
+        private readonly object _lockObj = new object();
         [ImportMany]
         private TLayer[] _importedLayers = null;
         private CompositionContainer _container;

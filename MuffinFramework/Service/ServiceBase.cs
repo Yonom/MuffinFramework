@@ -3,7 +3,7 @@
 namespace MuffinFramework.Service
 {
     [InheritedExport(typeof(ServiceBase))]
-    public abstract class ServiceBase : LayerBase<ServiceLoader, ServiceArgs>
+    public abstract class ServiceBase : LayerBase<ServiceArgs>
     {
     }
 }

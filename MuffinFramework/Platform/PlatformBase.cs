@@ -3,7 +3,7 @@
 namespace MuffinFramework.Platform
 {
     [InheritedExport(typeof(PlatformBase))]
-    public abstract class PlatformBase : LayerBase<PlatformLoader, PlatformArgs>
+    public abstract class PlatformBase : LayerBase<PlatformArgs>
     {
     }
 }

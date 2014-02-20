@@ -5,7 +5,7 @@ namespace TestProject
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             var client = new MuffinClient();
             client.Start();
