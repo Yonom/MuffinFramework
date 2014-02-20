@@ -1,15 +1,12 @@
 ﻿namespace MuffinFramework
 {
-    public abstract class LayerBase<TLoader, TArgs> : ILayerBase<TArgs> where TLoader : ILayerLoader<TArgs>
+    public abstract class LayerBase<TArgs> : ILayerBase<TArgs>
     {
         protected TArgs Args;
-        protected TLoader Loader;
 
-        public void Enable(ILayerLoader<TArgs> loader, TArgs args)
+        public void Enable(TArgs args)
         {
-            Loader = (TLoader) loader;
             Args = args;
-
             Enable();
         }
 

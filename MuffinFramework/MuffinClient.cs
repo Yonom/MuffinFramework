@@ -19,13 +19,17 @@ namespace MuffinFramework
         {
             Catalog = new AggregateCatalog();
             Catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetCallingAssembly()));
+
+            PlatformLoader = new PlatformLoader();
+            ServiceLoader = new ServiceLoader();
+            MuffinLoader = new MuffinLoader();
         }
 
         public void Start()
         {
-            PlatformLoader = new PlatformLoader(Catalog);
-            ServiceLoader = new ServiceLoader(Catalog, PlatformLoader);
-            MuffinLoader = new MuffinLoader(Catalog, PlatformLoader, ServiceLoader);
+            PlatformLoader.Enable(Catalog, new PlatformArgs(PlatformLoader));
+            ServiceLoader.Enable(Catalog, new ServiceArgs(PlatformLoader, ServiceLoader));
+            MuffinLoader.Enable(Catalog, new MuffinArgs(PlatformLoader, ServiceLoader, MuffinLoader));
         }
 
         public void Dispose()

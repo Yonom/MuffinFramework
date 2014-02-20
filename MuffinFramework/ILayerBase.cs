@@ -1,7 +1,7 @@
 ﻿namespace MuffinFramework
 {
-    public interface ILayerBase<TArgs>
+    public interface ILayerBase<in TArgs>
     {
-        void Enable(ILayerLoader<TArgs> loader, TArgs args);
+        void Enable(TArgs args);
     }
 }

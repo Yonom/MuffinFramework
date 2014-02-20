@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 
 namespace MuffinFramework
 {
-    public interface ILayerLoader<TArgs>
+    public interface ILayerLoader<TArgs> : IEnumerable<ILayerBase<TArgs>>
     {
-        event EventHandler LoadingComplete;
-        ReadOnlyCollection<ILayerBase<TArgs>> Layers { get; }
+        bool Enabled { get; }
+        event EventHandler EnableComplete;
         TType Get<TType>() where TType : class, ILayerBase<TArgs>;
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Service\ServiceArgs.cs" />
     <Compile Include="Service\ServiceBase.cs" />
     <Compile Include="Service\ServiceLoader.cs" />
+    <Compile Include="UnknownLayerException.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
