@@ -7,7 +7,7 @@ using MuffinFramework.Muffin;
 
 namespace TestProject.Muffins
 {
-    public class TestMuffinPart : MuffinPart<TestMuffin>
+    public class TestMuffinPart : MuffinPart<TMuffin>
     {
         protected override void Enable()
         {

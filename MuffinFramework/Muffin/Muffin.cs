@@ -2,8 +2,13 @@
 
 namespace MuffinFramework.Muffin
 {
-    [InheritedExport(typeof(MuffinBase))]
-    public abstract class Muffin : MuffinBase
+    [InheritedExport(typeof(IMuffin))]
+    public abstract class Muffin : MuffinPart<object>, IMuffin
+    {
+    }
+
+    [InheritedExport(typeof(IMuffin))]
+    public abstract class Muffin<TProtocol> : MuffinPart<TProtocol>, IMuffin
     {
     }
 }

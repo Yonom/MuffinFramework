@@ -1,6 +1,6 @@
 ﻿namespace MuffinFramework.Muffin
 {
-    public class MuffinLoader : LayerLoader<MuffinBase, MuffinArgs>
+    public class MuffinLoader : LayerLoader<IMuffin, MuffinArgs>
     {
     }
 }

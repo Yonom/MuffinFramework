@@ -60,7 +60,7 @@ namespace MuffinFramework
             }
             catch (InvalidOperationException ex)
             {
-                throw new UnknownLayerException(string.Format("Requested Type was not found: {0}", typeof(TType)), ex);
+                throw new KeyNotFoundException(string.Format("Requested Type was not found: {0}", typeof(TType)), ex);
             }
         }
 

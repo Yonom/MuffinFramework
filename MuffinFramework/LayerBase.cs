@@ -35,6 +35,12 @@ namespace MuffinFramework
             return part;
         }
 
+        protected TPart EnablePart<TPart, TProtocol>() where TPart : class, ILayerPart<TProtocol, TArgs>, new()
+        {
+            var host = (TProtocol) (object) this;
+            return EnablePart<TPart, TProtocol>(host);
+        }
+
         public virtual void Dispose()
         {
             foreach (var part in _parts)

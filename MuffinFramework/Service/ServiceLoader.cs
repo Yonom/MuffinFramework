@@ -1,6 +1,6 @@
 ﻿namespace MuffinFramework.Service
 {
-    public class ServiceLoader : LayerLoader<ServiceBase, ServiceArgs>
+    public class ServiceLoader : LayerLoader<IService, ServiceArgs>
     {
     }
 }

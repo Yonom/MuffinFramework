@@ -2,8 +2,13 @@
 
 namespace MuffinFramework.Platform
 {
-    [InheritedExport(typeof(PlatformBase))]
-    public abstract class Platform : PlatformBase
+    [InheritedExport(typeof(IPlatform))]
+    public abstract class Platform : PlatformPart<object>, IPlatform
+    {
+    }
+
+    [InheritedExport(typeof(IPlatform))]
+    public abstract class Platform<TProtocol> : PlatformPart<TProtocol>, IPlatform
     {
     }
 }

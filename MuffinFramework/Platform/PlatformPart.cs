@@ -1,13 +1,14 @@
 ﻿namespace MuffinFramework.Platform
 {
-    public abstract class PlatformPart<TProtocol> : PlatformBase, ILayerPart<TProtocol, PlatformArgs>
+    public abstract class PlatformPart<TProtocol> : LayerPart<TProtocol, PlatformArgs>
     {
-        public TProtocol Host { get; private set; }
-        public void Enable(TProtocol host, PlatformArgs args)
-        {
-            Host = host;
+        protected PlatformLoader PlatformLoader;
 
-            Enable(args);
+        public override sealed void Enable(PlatformArgs args)
+        {
+            PlatformLoader = args.PlatformLoader;
+
+            base.Enable(args);
         }
     }
 }

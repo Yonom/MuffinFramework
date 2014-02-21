@@ -1,13 +1,21 @@
-﻿namespace MuffinFramework.Muffin
-{
-    public abstract class MuffinPart<TProtocol> : MuffinBase, ILayerPart<TProtocol, MuffinArgs>
-    {
-        public TProtocol Host { get; private set; }
-        public void Enable(TProtocol host, MuffinArgs args)
-        {
-            Host = host;
+﻿using MuffinFramework.Platform;
+using MuffinFramework.Service;
 
-            Enable(args);
+namespace MuffinFramework.Muffin
+{
+    public abstract class MuffinPart<TProtocol> : LayerPart<TProtocol, MuffinArgs>
+    {
+        protected PlatformLoader PlatformLoader;
+        protected ServiceLoader ServiceLoader;
+        protected MuffinLoader MuffinLoader;
+
+        public override sealed void Enable(MuffinArgs args)
+        {
+            PlatformLoader = args.PlatformLoader;
+            ServiceLoader = args.ServiceLoader;
+            MuffinLoader = args.MuffinLoader;
+
+            base.Enable(args);
         }
     }
 }

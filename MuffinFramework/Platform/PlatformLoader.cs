@@ -1,6 +1,6 @@
 ﻿namespace MuffinFramework.Platform
 {
-    public class PlatformLoader : LayerLoader<PlatformBase, PlatformArgs>
+    public class PlatformLoader : LayerLoader<IPlatform, PlatformArgs>
     {
     }
 }
