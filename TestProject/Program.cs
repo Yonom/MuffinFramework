@@ -9,7 +9,7 @@ namespace TestProject
         {
             var client = new MuffinClient();
             client.Start();
-            client.Dispose();
+
             Thread.Sleep(Timeout.Infinite);
         }
     }
