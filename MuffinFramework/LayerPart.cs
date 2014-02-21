@@ -8,12 +8,20 @@ namespace MuffinFramework
 {
     public abstract class LayerPart<TProtocol, TArgs> : LayerBase<TArgs>, ILayerPart<TProtocol, TArgs>
     {
+        private readonly object _lockObj = new object();
+
         public TProtocol Host { get; private set; }
         public void Enable(TProtocol host, TArgs args)
         {
-            Host = host;
+            lock (_lockObj)
+            {
+                if (IsEnabled)
+                    throw new InvalidOperationException("LayerPart has already been enabled.");
 
-            Enable(args);
+                Host = host;
+
+                Enable(args);
+            }
         }
 
         protected TPart EnablePart<TPart>(TProtocol host) where TPart : class, ILayerPart<TProtocol, TArgs>, new()
