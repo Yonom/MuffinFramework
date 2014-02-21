@@ -1,35 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MuffinFramework.Muffin.Muffin" Collapsed="true">
-    <Position X="8.5" Y="5" Width="1.5" />
+    <Position X="14.5" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Muffin\Muffin.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="MuffinFramework.Muffin.MuffinBase" Collapsed="true">
-    <Position X="9.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAIAAAACCAABAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Muffin\MuffinBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MuffinFramework.Muffin.MuffinPart&lt;TProtocol&gt;" Collapsed="true">
-    <Position X="10.5" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAACAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Muffin\MuffinPart.cs</FileName>
-    </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="MuffinFramework.Muffin.MuffinPart&lt;TProtocol&gt;">
+    <Position X="14.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAACCAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Muffin\MuffinPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MuffinFramework.Muffin.MuffinLoader" Collapsed="true">
-    <Position X="17" Y="3" Width="1.5" />
+    <Position X="4.5" Y="8.75" Width="1.5" />
     <InheritanceLine Type="MuffinFramework.LayerLoader&lt;TLayer, TArgs&gt;" FixedFromPoint="true">
       <Path>
-        <Point X="15.75" Y="2.312" />
-        <Point X="15.75" Y="2.625" />
-        <Point X="17.75" Y="2.625" />
-        <Point X="17.75" Y="3" />
+        <Point X="3.25" Y="7.691" />
+        <Point X="3.25" Y="8.375" />
+        <Point X="5.25" Y="8.375" />
+        <Point X="5.25" Y="8.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -37,128 +30,170 @@
       <FileName>Muffin\MuffinLoader.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MuffinFramework.LayerBase&lt;TArgs&gt;" Collapsed="true">
-    <Position X="5.5" Y="1.75" Width="1.5" />
+  <Class Name="MuffinFramework.LayerBase&lt;TArgs&gt;">
+    <Position X="11.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAQAAgAAAEACAAAACAAAAAAAAAAAAAAAQA=</HashCode>
       <FileName>LayerBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MuffinFramework.LayerLoader&lt;TLayer, TArgs&gt;" Collapsed="true">
-    <Position X="15" Y="1.75" Width="1.5" />
+  <Class Name="MuffinFramework.LayerLoader&lt;TLayer, TArgs&gt;">
+    <Position X="2.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAFBAAYEACCAAACAAAAAEAAAAAAAAEAA=</HashCode>
       <FileName>LayerLoader.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="MuffinFramework.Service.ServiceBase" Collapsed="true">
-    <Position X="5.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACCAABAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Service\ServiceBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MuffinFramework.Service.ServiceLoader" Collapsed="true">
-    <Position X="15" Y="3" Width="1.5" />
+    <Position X="2.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\ServiceLoader.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MuffinFramework.Platform.PlatformBase" Collapsed="true">
-    <Position X="1.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Platform\PlatformBase.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="MuffinFramework.Platform.Platform" Collapsed="true">
-    <Position X="0.5" Y="5" Width="1.5" />
+    <Position X="6.5" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Platform\Platform.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="MuffinFramework.Platform.PlatformPart&lt;TProtocol&gt;" Collapsed="true">
-    <Position X="2.5" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAACAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Platform\PlatformPart.cs</FileName>
-    </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="MuffinFramework.Platform.PlatformPart&lt;TProtocol&gt;">
+    <Position X="6.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platform\PlatformPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MuffinFramework.Service.Service" Collapsed="true">
-    <Position X="4.5" Y="5" Width="1.5" />
+    <Position X="10.5" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\Service.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="MuffinFramework.Service.ServicePart&lt;TProtocol&gt;" Collapsed="true">
-    <Position X="6.5" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAACAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Service\ServicePart.cs</FileName>
-    </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
+  <Class Name="MuffinFramework.Service.ServicePart&lt;TProtocol&gt;">
+    <Position X="10.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACCAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\ServicePart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="MuffinFramework.Platform.PlatformLoader" Collapsed="true">
-    <Position X="13" Y="3" Width="1.5" />
+    <Position X="0.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Platform\PlatformLoader.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MuffinFramework.Platform.PlatformArgs" Collapsed="true">
-    <Position X="0.5" Y="6.5" Width="1.5" />
+  <Class Name="MuffinFramework.Platform.PlatformArgs">
+    <Position X="8.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Platform\PlatformArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MuffinFramework.Muffin.MuffinArgs" Collapsed="true">
-    <Position X="4.5" Y="6.5" Width="1.5" />
+  <Class Name="MuffinFramework.Muffin.MuffinArgs">
+    <Position X="16.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAIAAAAACAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Muffin\MuffinArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MuffinFramework.Service.ServiceArgs" Collapsed="true">
-    <Position X="2.5" Y="6.5" Width="1.5" />
+  <Class Name="MuffinFramework.Service.ServiceArgs">
+    <Position X="12.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAACAABAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Service\ServiceArgs.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MuffinFramework.MuffinClient" Collapsed="true">
-    <Position X="6.75" Y="6.5" Width="1.5" />
+  <Class Name="MuffinFramework.MuffinClient">
+    <Position X="18.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAIAAAAACABBCBAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MuffinClient.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="MuffinFramework.ILayerBase&lt;TArgs&gt;" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+  <Class Name="MuffinFramework.LayerPart&lt;TProtocol, TArgs&gt;">
+    <Position X="11.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAACAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LayerPart.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MuffinFramework.Muffin.Muffin&lt;TProtocol&gt;" Collapsed="true">
+    <Position X="16.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Muffin\Muffin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MuffinFramework.Service.Service&lt;TProtocol&gt;" Collapsed="true">
+    <Position X="12.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\Service.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MuffinFramework.Platform.Platform&lt;TProtocol&gt;" Collapsed="true">
+    <Position X="8.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platform\Platform.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="MuffinFramework.ILayerBase&lt;TArgs&gt;">
+    <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ILayerBase.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MuffinFramework.ILayerLoader&lt;TArgs&gt;" Collapsed="true">
-    <Position X="15" Y="0.5" Width="1.5" />
+  <Interface Name="MuffinFramework.ILayerLoader&lt;TArgs&gt;">
+    <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEBAAAEACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ILayerLoader.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="MuffinFramework.ILayerPart&lt;TProtocol, TArgs&gt;" Collapsed="true">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+  <Interface Name="MuffinFramework.ILayerPart&lt;TProtocol, TArgs&gt;">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAACAAAAAAAAAAAAAA=</HashCode>
       <FileName>ILayerPart.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MuffinFramework.Service.IService" Collapsed="true">
+    <Position X="11.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\IService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MuffinFramework.Platform.IPlatform" Collapsed="true">
+    <Position X="9.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Platform\IPlatform.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MuffinFramework.Muffin.IMuffin" Collapsed="true">
+    <Position X="13.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Muffin\IMuffin.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
