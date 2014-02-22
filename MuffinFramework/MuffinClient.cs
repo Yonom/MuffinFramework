@@ -27,7 +27,7 @@ namespace MuffinFramework
             this.MuffinLoader = new MuffinLoader();
         }
 
-        public void Start()
+        public virtual void Start()
         {
             lock (this._lockObj)
             {
