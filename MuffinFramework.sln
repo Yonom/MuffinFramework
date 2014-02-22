@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication4", "Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication5", "Samples\SampleApplication5\SampleApplication5.csproj", "{EE55EC41-7DFA-4A43-ACFE-022309F567FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication6", "Samples\SampleApplication6\SampleApplication6.csproj", "{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication6.Muffins", "Samples\SampleApplication6.Muffins\SampleApplication6.Muffins.csproj", "{EA99F931-A49D-41C7-95D8-507AA0F57F46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,14 @@ Global
 		{EE55EC41-7DFA-4A43-ACFE-022309F567FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE55EC41-7DFA-4A43-ACFE-022309F567FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE55EC41-7DFA-4A43-ACFE-022309F567FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,5 +75,7 @@ Global
 		{E98A7F06-41D3-4021-ADBB-69C35DD775E6} = {DA2C0CFD-9A6C-4767-978B-474088013363}
 		{723DE810-CF8A-4095-8808-DFE96B18ABC3} = {DA2C0CFD-9A6C-4767-978B-474088013363}
 		{EE55EC41-7DFA-4A43-ACFE-022309F567FF} = {DA2C0CFD-9A6C-4767-978B-474088013363}
+		{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5} = {DA2C0CFD-9A6C-4767-978B-474088013363}
+		{EA99F931-A49D-41C7-95D8-507AA0F57F46} = {DA2C0CFD-9A6C-4767-978B-474088013363}
 	EndGlobalSection
 EndGlobal

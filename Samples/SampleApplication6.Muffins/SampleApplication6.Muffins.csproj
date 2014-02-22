@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{723DE810-CF8A-4095-8808-DFE96B18ABC3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{EA99F931-A49D-41C7-95D8-507AA0F57F46}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleApplication4</RootNamespace>
-    <AssemblyName>SampleApplication4</AssemblyName>
+    <RootNamespace>SampleApplication6.Muffins</RootNamespace>
+    <AssemblyName>SampleApplication6.Muffins</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,27 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Muffins\Muffin2Part2.cs" />
-    <Compile Include="Muffins\Muffin3Part1.cs" />
-    <Compile Include="Muffins\Muffin2.cs" />
-    <Compile Include="Muffins\Muffin1.cs" />
-    <Compile Include="Muffins\Muffin1Part1.cs" />
-    <Compile Include="Muffins\Muffin2Part1.cs" />
-    <Compile Include="Muffins\Muffin3.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Muffin1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MuffinFramework\MuffinFramework.csproj">
       <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
       <Name>MuffinFramework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Platforms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

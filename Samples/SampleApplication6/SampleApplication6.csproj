@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{723DE810-CF8A-4095-8808-DFE96B18ABC3}</ProjectGuid>
+    <ProjectGuid>{F1FC5CC5-1B78-4AEA-B083-ED99442D67F5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleApplication4</RootNamespace>
-    <AssemblyName>SampleApplication4</AssemblyName>
+    <RootNamespace>SampleApplication6</RootNamespace>
+    <AssemblyName>SampleApplication6</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,27 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Muffins\Muffin2Part2.cs" />
-    <Compile Include="Muffins\Muffin3Part1.cs" />
-    <Compile Include="Muffins\Muffin2.cs" />
-    <Compile Include="Muffins\Muffin1.cs" />
-    <Compile Include="Muffins\Muffin1Part1.cs" />
-    <Compile Include="Muffins\Muffin2Part1.cs" />
-    <Compile Include="Muffins\Muffin3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\MuffinFramework\MuffinFramework.csproj">
       <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
       <Name>MuffinFramework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Platforms\" />
+    <ProjectReference Include="..\SampleApplication6.Muffins\SampleApplication6.Muffins.csproj">
+      <Project>{ea99f931-a49d-41c7-95d8-507aa0f57f46}</Project>
+      <Name>SampleApplication6.Muffins</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
