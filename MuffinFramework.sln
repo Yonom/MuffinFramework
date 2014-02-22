@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{DA2C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuffinFramework", "MuffinFramework\MuffinFramework.csproj", "{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication1", "SampleApplication1\SampleApplication1.csproj", "{7B97E326-A105-4470-B5AD-7E8B85715976}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication2", "SampleApplication2\SampleApplication2.csproj", "{AE447E4F-F746-4BA0-8AA5-870D16CFE4C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,8 +33,20 @@ Global
 		{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B97E326-A105-4470-B5AD-7E8B85715976}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B97E326-A105-4470-B5AD-7E8B85715976}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B97E326-A105-4470-B5AD-7E8B85715976}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B97E326-A105-4470-B5AD-7E8B85715976}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE447E4F-F746-4BA0-8AA5-870D16CFE4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE447E4F-F746-4BA0-8AA5-870D16CFE4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE447E4F-F746-4BA0-8AA5-870D16CFE4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE447E4F-F746-4BA0-8AA5-870D16CFE4C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B97E326-A105-4470-B5AD-7E8B85715976} = {DA2C0CFD-9A6C-4767-978B-474088013363}
+		{AE447E4F-F746-4BA0-8AA5-870D16CFE4C4} = {DA2C0CFD-9A6C-4767-978B-474088013363}
 	EndGlobalSection
 EndGlobal
