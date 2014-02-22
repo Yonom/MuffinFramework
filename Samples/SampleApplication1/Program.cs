@@ -22,6 +22,8 @@ namespace SampleApplication1
 
             Console.WriteLine("Press enter to exit...");
             Console.ReadLine();
+
+            client.Dispose();
         }
     }
 }

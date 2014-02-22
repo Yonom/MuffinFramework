@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7B97E326-A105-4470-B5AD-7E8B85715976}</ProjectGuid>
+    <ProjectGuid>{723DE810-CF8A-4095-8808-DFE96B18ABC3}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SampleApplication1</RootNamespace>
-    <AssemblyName>SampleApplication1</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>SampleApplication4</RootNamespace>
+    <AssemblyName>SampleApplication4</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -41,22 +42,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Muffins\Muffin2Part2.cs" />
+    <Compile Include="Muffins\Muffin3Part1.cs" />
+    <Compile Include="Muffins\Muffin2.cs" />
     <Compile Include="Muffins\Muffin1.cs" />
-    <Compile Include="Platforms\Platform1.cs" />
+    <Compile Include="Muffins\Muffin1Part1.cs" />
+    <Compile Include="Muffins\Muffin2Part1.cs" />
+    <Compile Include="Muffins\Muffin3.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Service1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
+    <ProjectReference Include="..\..\MuffinFramework\MuffinFramework.csproj">
       <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
       <Name>MuffinFramework</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Platforms\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

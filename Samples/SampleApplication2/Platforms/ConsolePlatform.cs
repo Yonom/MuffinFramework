@@ -14,14 +14,15 @@ namespace SampleApplication2.Platforms
             // Nothing to do here...
         }
 
-        public event EventHandler<string> OutputRecieved;
+        public delegate void OutputEventHandler(object sender, string output);
+        public event OutputEventHandler OutputRecieved;
 
         public void WriteLine(string text)
         {
             // We call the OutputRecieved event here, this will be used by LogMuffin
             // to get informed of new console outputs.
-            EventHandler<string> handler = OutputRecieved;
-            if (handler != null) 
+            OutputEventHandler handler = OutputRecieved;
+            if (handler != null)
                 handler(this, text);
 
 

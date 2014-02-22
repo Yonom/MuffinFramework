@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1DB95CF8-4081-4050-85D2-3E2A544351BE}</ProjectGuid>
+    <ProjectGuid>{E98A7F06-41D3-4021-ADBB-69C35DD775E6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TestProject</RootNamespace>
-    <AssemblyName>TestProject</AssemblyName>
+    <RootNamespace>SampleApplication3</RootNamespace>
+    <AssemblyName>SampleApplication3</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -42,8 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Muffins\TestMuffin.cs" />
-    <Compile Include="Muffins\TestMuffinPart.cs" />
+    <Compile Include="Muffins\Muffin1.cs" />
+    <Compile Include="Muffins\Muffin2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -51,14 +51,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Platforms\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
+    <ProjectReference Include="..\..\MuffinFramework\MuffinFramework.csproj">
       <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
       <Name>MuffinFramework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Platforms\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

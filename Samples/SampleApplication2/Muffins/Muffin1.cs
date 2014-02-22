@@ -15,6 +15,9 @@ namespace SampleApplication2.Muffins
 
         protected override void Enable()
         {
+            // ServiceLoader contains all services currently loaded.
+            // There are also PlatformLoader and MuffinLoader.
+
             _output = ServiceLoader.Get<ConsoleOutputService>();
 
             _output.WriteLine("Started working");
