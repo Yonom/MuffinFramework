@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "MuffinFramework.Modeling", "MuffinFramework.Modeling\MuffinFramework.Modeling.modelproj", "{8D3BEED1-B7A4-4802-A6D0-EEDD5B911A4F}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{DA2C0CFD-9A6C-4767-978B-474088013363}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuffinFramework", "MuffinFramework\MuffinFramework.csproj", "{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}"
@@ -29,10 +27,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8D3BEED1-B7A4-4802-A6D0-EEDD5B911A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D3BEED1-B7A4-4802-A6D0-EEDD5B911A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D3BEED1-B7A4-4802-A6D0-EEDD5B911A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D3BEED1-B7A4-4802-A6D0-EEDD5B911A4F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A58DC523-D333-4D24-BA57-6FF1C2CAE43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
