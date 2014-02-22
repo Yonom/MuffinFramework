@@ -43,10 +43,10 @@ namespace MuffinFramework
 
         public virtual void Dispose()
         {
-            Catalog.Dispose();
-            PlatformLoader.Dispose();
-            ServiceLoader.Dispose();
             MuffinLoader.Dispose();
+            ServiceLoader.Dispose();
+            PlatformLoader.Dispose();
+            Catalog.Dispose();
         }
     }
 }
