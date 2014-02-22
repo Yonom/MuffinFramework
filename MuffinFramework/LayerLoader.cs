@@ -28,7 +28,7 @@ namespace MuffinFramework
         private readonly List<TLayer> _layers = new List<TLayer>();
         public ReadOnlyCollection<TLayer> Layers
         {
-            get { return _layers.AsReadOnly(); }
+            get { return new ReadOnlyCollection<TLayer>(_layers); }
         }
 
         public void Enable(ComposablePartCatalog catalog, TArgs args)

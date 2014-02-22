@@ -51,14 +51,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
-      <Project>{f3a5a213-494f-45bd-b838-67492c204297}</Project>
-      <Name>MuffinFramework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Platforms\" />
     <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
+      <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
+      <Name>MuffinFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,12 +28,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
-      <Name>MuffinFramework</Name>
-      <Project>{f3a5a213-494f-45bd-b838-67492c204297}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Validate Include="LayersDiagram.layerdiagram">
       <SubType>Content</SubType>
     </Validate>
@@ -45,5 +39,11 @@
       <SubType>Content</SubType>
       <DependentUpon>LayersDiagram.layerdiagram</DependentUpon>
     </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
+      <Name>MuffinFramework</Name>
+      <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
+    </ProjectReference>
   </ItemGroup>
 </Project>
