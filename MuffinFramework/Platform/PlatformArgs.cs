@@ -6,7 +6,7 @@
 
         public PlatformArgs(PlatformLoader platformLoader)
         {
-            PlatformLoader = platformLoader;
+            this.PlatformLoader = platformLoader;
         }
     }
 }

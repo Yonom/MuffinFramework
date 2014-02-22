@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using MuffinFramework;
 using SampleApplication6.Muffins;
 
@@ -15,7 +11,8 @@ namespace SampleApplication6
         // This sample demonstrates how you can load classes that are not located in the
         // main assembly of your program. This requires you to refrence 
         // System.ComponentModel.Composition.
-        // Muffin1 is stored in SampleApplication6.Muffins.dll assembly and must be loaded.
+        // Muffin1 is stored in SampleApplication6.Muffins.dll assembly and should be 
+        // loaded from SampleApplication6.exe.
         static void Main()
         {
             var client = new MuffinClient();

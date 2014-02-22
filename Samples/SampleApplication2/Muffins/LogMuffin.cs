@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using MuffinFramework.Muffin;
+﻿using MuffinFramework.Muffin;
 using SampleApplication2.Platforms;
 
 namespace SampleApplication2.Muffins
@@ -14,8 +8,8 @@ namespace SampleApplication2.Muffins
         private ConsolePlatform _console;
         protected override void Enable()
         {
-            _console = PlatformLoader.Get<ConsolePlatform>();
-            _console.OutputRecieved += _console_OutputRecieved;
+            this._console = this.PlatformLoader.Get<ConsolePlatform>();
+            this._console.OutputRecieved += this._console_OutputRecieved;
         }
 
         void _console_OutputRecieved(object sender, string e)
@@ -33,7 +27,7 @@ namespace SampleApplication2.Muffins
             // longer than yours.
             // It is best to always unbind every event you subscribed to in your Dispose() 
             // function, unless you have control over the object (you created it).
-            _console.OutputRecieved -= _console_OutputRecieved;
+            this._console.OutputRecieved -= this._console_OutputRecieved;
         }
     }
 }

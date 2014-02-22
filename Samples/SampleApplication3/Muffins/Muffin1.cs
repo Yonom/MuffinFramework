@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using MuffinFramework.Muffin;
 
 namespace SampleApplication3.Muffins
@@ -19,13 +16,13 @@ namespace SampleApplication3.Muffins
             // Muffin2 muffin2 = MuffinLoader.Get<Muffin2>();
 
             // Instead, we must first wait for all Muffins to load...
-            MuffinLoader.EnableComplete += MuffinLoader_EnableComplete;
+            this.MuffinLoader.EnableComplete += this.MuffinLoader_EnableComplete;
         }
 
         void MuffinLoader_EnableComplete(object sender, EventArgs e)
         {
             // It is now safe to access Muffin2.
-            var muffin2 = MuffinLoader.Get<Muffin2>();
+            var muffin2 = this.MuffinLoader.Get<Muffin2>();
 
             muffin2.Text = "New Text!";
         }
@@ -34,7 +31,7 @@ namespace SampleApplication3.Muffins
         {
             base.Dispose();
 
-            MuffinLoader.EnableComplete -= MuffinLoader_EnableComplete;
+            this.MuffinLoader.EnableComplete -= this.MuffinLoader_EnableComplete;
         }
     }
 }

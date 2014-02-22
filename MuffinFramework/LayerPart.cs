@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MuffinFramework
 {
@@ -13,25 +9,25 @@ namespace MuffinFramework
         public TProtocol Host { get; private set; }
         public void Enable(TProtocol host, TArgs args)
         {
-            lock (_lockObj)
+            lock (this._lockObj)
             {
-                if (IsEnabled)
+                if (this.IsEnabled)
                     throw new InvalidOperationException("LayerPart has already been enabled.");
 
-                Host = host;
+                this.Host = host;
 
-                Enable(args);
+                this.Enable(args);
             }
         }
 
         protected TPart EnablePart<TPart>(TProtocol host) where TPart : class, ILayerPart<TProtocol, TArgs>, new()
         {
-            return EnablePart<TPart, TProtocol>(host);
+            return this.EnablePart<TPart, TProtocol>(host);
         }
 
         protected TPart EnablePart<TPart>() where TPart : class, ILayerPart<TProtocol, TArgs>, new()
         {
-            return EnablePart<TPart, TProtocol>();
+            return this.EnablePart<TPart, TProtocol>();
         }
     }
 }

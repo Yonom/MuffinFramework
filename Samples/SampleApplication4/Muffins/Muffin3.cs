@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using MuffinFramework.Muffin;
 
 namespace SampleApplication4.Muffins
@@ -19,7 +16,7 @@ namespace SampleApplication4.Muffins
 
             var protocol = new Protocol(this);
 
-            Part1 = EnablePart<Muffin3Part1>(protocol);
+            this.Part1 = this.EnablePart<Muffin3Part1>(protocol);
         }
         public void HelloWorld()
         {
@@ -32,12 +29,12 @@ namespace SampleApplication4.Muffins
 
             public Protocol(Muffin3 parent)
             {
-                _parent = parent;
+                this._parent = parent;
             }
 
             public void HelloWorld()
             {
-                _parent.HelloWorld();
+                this._parent.HelloWorld();
             }
         }
     }

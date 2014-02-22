@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MuffinFramework
+﻿namespace MuffinFramework
 {
     public interface ILayerPart<TProtocol, in TArgs> : ILayerBase<TArgs>
     {

@@ -11,9 +11,9 @@ namespace MuffinFramework.Muffin
 
         public MuffinArgs(PlatformLoader platformLoader, ServiceLoader serviceLoader, MuffinLoader muffinLoader)
         {
-            PlatformLoader = platformLoader;
-            ServiceLoader = serviceLoader;
-            MuffinLoader = muffinLoader;
+            this.PlatformLoader = platformLoader;
+            this.ServiceLoader = serviceLoader;
+            this.MuffinLoader = muffinLoader;
         }
     }
 }

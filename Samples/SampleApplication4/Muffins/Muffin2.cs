@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MuffinFramework.Muffin;
+﻿using MuffinFramework.Muffin;
 
 namespace SampleApplication4.Muffins
 {
@@ -17,8 +13,8 @@ namespace SampleApplication4.Muffins
             // non-generic version. Now we can call EnablePart<TPart> instead of having
             // to provide the TProtocol type every time.
 
-            Part1 = EnablePart<Muffin2Part1>();
-            Part2 = EnablePart<Muffin2Part2>();
+            this.Part1 = this.EnablePart<Muffin2Part1>();
+            this.Part2 = this.EnablePart<Muffin2Part2>();
         }
     }
 }

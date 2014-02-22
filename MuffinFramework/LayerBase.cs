@@ -13,16 +13,16 @@ namespace MuffinFramework
 
         public virtual void Enable(TArgs args)
         {
-            lock (_lockObj)
+            lock (this._lockObj)
             {
-                if (IsEnabled)
+                if (this.IsEnabled)
                     throw new InvalidOperationException("LayerBase has already been enabled.");
-                IsEnabled = true;
+                this.IsEnabled = true;
             }
 
-            _args = args;
+            this._args = args;
 
-            Enable();
+            this.Enable();
         }
 
         protected abstract void Enable();
@@ -30,20 +30,20 @@ namespace MuffinFramework
         protected TPart EnablePart<TPart, TProtocol>(TProtocol host) where TPart : class, ILayerPart<TProtocol, TArgs>, new()
         {
             var part = new TPart();
-            part.Enable(host, _args);
-            _parts.Add(part);
+            part.Enable(host, this._args);
+            this._parts.Add(part);
             return part;
         }
 
         protected TPart EnablePart<TPart, TProtocol>() where TPart : class, ILayerPart<TProtocol, TArgs>, new()
         {
             var host = (TProtocol) (object) this;
-            return EnablePart<TPart, TProtocol>(host);
+            return this.EnablePart<TPart, TProtocol>(host);
         }
 
         public virtual void Dispose()
         {
-            foreach (var part in _parts)
+            foreach (var part in this._parts)
             {
                 part.Dispose();
             }

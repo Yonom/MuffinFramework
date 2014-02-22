@@ -21,42 +21,42 @@ namespace MuffinFramework
         public event EventHandler EnableComplete;
         private void OnEnableComplete()
         {
-            EventHandler handler = EnableComplete;
+            EventHandler handler = this.EnableComplete;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
         private readonly List<TLayer> _layers = new List<TLayer>();
         public ReadOnlyCollection<TLayer> Layers
         {
-            get { return new ReadOnlyCollection<TLayer>(_layers); }
+            get { return new ReadOnlyCollection<TLayer>(this._layers); }
         }
 
         public void Enable(ComposablePartCatalog catalog, TArgs args)
         {
-            lock (_lockObj)
+            lock (this._lockObj)
             {
-                if (IsEnabled)
+                if (this.IsEnabled)
                     throw new InvalidOperationException("LayerLoader has already been enabled.");
-                IsEnabled = true;
+                this.IsEnabled = true;
             }
 
-            _container = new CompositionContainer(catalog);
-            _container.ComposeParts(this);
+            this._container = new CompositionContainer(catalog);
+            this._container.ComposeParts(this);
 
-            foreach (var l in _importedLayers)
+            foreach (var l in this._importedLayers)
             {
                 l.Enable(args);
-                _layers.Add(l);
+                this._layers.Add(l);
             }
 
-            OnEnableComplete();
+            this.OnEnableComplete();
         }
 
         public TType Get<TType>() where TType : class, ILayerBase<TArgs>
         {
             try
             {
-                return _layers.OfType<TType>().First();
+                return this._layers.OfType<TType>().First();
             }
             catch (InvalidOperationException ex)
             {
@@ -66,18 +66,18 @@ namespace MuffinFramework
 
         public IEnumerator<ILayerBase<TArgs>> GetEnumerator()
         {
-            return _layers.Cast<ILayerBase<TArgs>>().GetEnumerator();
+            return this._layers.Cast<ILayerBase<TArgs>>().GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return this.GetEnumerator();
         }
 
         public virtual void Dispose()
         {
-            if (_container != null)
-                _container.Dispose();
+            if (this._container != null)
+                this._container.Dispose();
         }
     }
 }

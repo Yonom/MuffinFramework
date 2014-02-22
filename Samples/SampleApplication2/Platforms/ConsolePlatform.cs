@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MuffinFramework.Platform;
 
 namespace SampleApplication2.Platforms
@@ -21,7 +17,7 @@ namespace SampleApplication2.Platforms
         {
             // We call the OutputRecieved event here, this will be used by LogMuffin
             // to get informed of new console outputs.
-            OutputEventHandler handler = OutputRecieved;
+            OutputEventHandler handler = this.OutputRecieved;
             if (handler != null)
                 handler(this, text);
 

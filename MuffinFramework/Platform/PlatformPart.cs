@@ -6,7 +6,7 @@
 
         public override sealed void Enable(PlatformArgs args)
         {
-            PlatformLoader = args.PlatformLoader;
+            this.PlatformLoader = args.PlatformLoader;
 
             base.Enable(args);
         }

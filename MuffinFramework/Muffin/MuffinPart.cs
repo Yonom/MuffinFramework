@@ -11,9 +11,9 @@ namespace MuffinFramework.Muffin
 
         public override sealed void Enable(MuffinArgs args)
         {
-            PlatformLoader = args.PlatformLoader;
-            ServiceLoader = args.ServiceLoader;
-            MuffinLoader = args.MuffinLoader;
+            this.PlatformLoader = args.PlatformLoader;
+            this.ServiceLoader = args.ServiceLoader;
+            this.MuffinLoader = args.MuffinLoader;
 
             base.Enable(args);
         }

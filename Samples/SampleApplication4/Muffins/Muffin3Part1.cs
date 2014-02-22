@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MuffinFramework.Muffin;
+﻿using MuffinFramework.Muffin;
 
 namespace SampleApplication4.Muffins
 {
@@ -11,7 +7,7 @@ namespace SampleApplication4.Muffins
         protected override void Enable()
         {
             // This will call Protocol.HelloWorld which will then invoke Muffin3.HelloWorld
-            Host.HelloWorld();
+            this.Host.HelloWorld();
         }
     }
 }

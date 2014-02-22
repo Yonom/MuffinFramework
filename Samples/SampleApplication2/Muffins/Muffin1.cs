@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using MuffinFramework.Muffin;
 using SampleApplication2.Services;
 
@@ -18,15 +13,15 @@ namespace SampleApplication2.Muffins
             // ServiceLoader contains all services currently loaded.
             // There are also PlatformLoader and MuffinLoader.
 
-            _output = ServiceLoader.Get<ConsoleOutputService>();
+            this._output = this.ServiceLoader.Get<ConsoleOutputService>();
 
-            _output.WriteLine("Started working");
+            this._output.WriteLine("Started working");
 
             Thread.Sleep(2000);
-            _output.WriteLine("Task 1 complete.");
+            this._output.WriteLine("Task 1 complete.");
 
             Thread.Sleep(5000);
-            _output.WriteLine("Task 2 complete.");
+            this._output.WriteLine("Task 2 complete.");
         }
     }
 }

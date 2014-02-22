@@ -9,8 +9,8 @@ namespace MuffinFramework.Service
 
         public ServiceArgs(PlatformLoader platformLoader, ServiceLoader serviceLoader)
         {
-            PlatformLoader = platformLoader;
-            ServiceLoader = serviceLoader;
+            this.PlatformLoader = platformLoader;
+            this.ServiceLoader = serviceLoader;
         }
     }
 }

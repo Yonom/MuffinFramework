@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using MuffinFramework.Muffin;
+﻿using MuffinFramework.Muffin;
 
 namespace SampleApplication4.Muffins
 {
@@ -19,7 +15,7 @@ namespace SampleApplication4.Muffins
             // MuffinFramework tries to cast the current class to the given TProtocol
             // type.
 
-            Part1 = EnablePart<Muffin1Part1, Muffin1>();
+            this.Part1 = this.EnablePart<Muffin1Part1, Muffin1>();
         }
     }
 }

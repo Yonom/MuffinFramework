@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using MuffinFramework.Muffin;
 
@@ -16,18 +13,18 @@ namespace SampleApplication3.Muffins
         protected override void Enable()
         {
             // This is the default text Muffin2 will be writing.
-            Text = "Hello world";
+            this.Text = "Hello world";
 
             // Start a new thread so we are not blocking Muffin1 from changing the text.
-            _writeThread = new Thread(RunThread);
-            _writeThread.Start();
+            this._writeThread = new Thread(this.RunThread);
+            this._writeThread.Start();
         }
 
         private void RunThread()
         {
             while (true)
             {
-                Console.WriteLine(Text);
+                Console.WriteLine(this.Text);
                 Thread.Sleep(500);
             }
         }
@@ -37,7 +34,7 @@ namespace SampleApplication3.Muffins
             base.Dispose();
 
             // Close the thread.
-            _writeThread.Abort();
+            this._writeThread.Abort();
         }
     }
 }
