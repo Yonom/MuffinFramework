@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Muffinframework by Yonom</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Muffinframework</h1>
+          <h2>A Framework for creating bots.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/Yonom/MuffinFramework/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/Yonom/MuffinFramework/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/Yonom/MuffinFramework" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><strong>MuffinFramework</strong> is a library that assists you in creating automated applications. These can be bots but MuffinFramework can also be used to add Plugin functionality to an existing program, as Plugins are automated as well and do not require any direct interaction from other parts of your software.</p>
+
+<p><a href="https://ci-beta.appveyor.com/project/Yonom13339/muffinframework"><img src="https://ci-beta.appveyor.com/api/projects/status/ioo76wsh9822ktfw" alt="Build status"></a></p>
+
+<p>MuffinFramework requires Microsoft Visual Studio 2010 or higher and supports the following frameworks:</p>
+
+<ul>
+<li>.NET Framework 4 and higher</li>
+<li>Silverlight 5</li>
+</ul><p>Programs using MuffinFramework will have their code split in three different "Layers". The Platform layer is the lowest one, then there is the Services layer and finally there comes the Muffin layer. MuffinFramework will take care of loading your classes so you don't have to write a lot of code to "glue" these parts together. </p>
+
+<p>This allows you to spend more time writing the actual code and results in a much cleaner code base.</p>
+
+<h2>
+<a name="quick-start-guide" class="anchor" href="#quick-start-guide"><span class="octicon octicon-link"></span></a>Quick Start guide</h2>
+
+<p>To start using MuffinFramework, create a new console application and add <code>MuffinFramework.dll</code> as a resource in visual studio.
+Now edit your <code>Program.cs</code> so it looks like this.</p>
+
+<div class="highlight highlight-csharp"><pre><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">MuffinFramework</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="k">new</span> <span class="n">MuffinClient</span><span class="p">();</span>
+        <span class="n">client</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+
+        <span class="n">Console</span><span class="p">.</span><span class="n">ReadLine</span><span class="p">();</span>
+
+        <span class="n">client</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>From here, the created client will take care of detecting, loading and executing your Platforms, Services and Muffins. Of course you can also use MuffinFramework in all kinds of .NET Applications or add other functionality to your <code>Program.cs</code>.</p>
+
+<p>Now you can continue by adding three folders to your project:</p>
+
+<ul>
+<li>Platforms</li>
+<li>Services</li>
+<li>Muffins</li>
+</ul><p>These will hold their  <code>Layer</code> classes respectively.</p>
+
+<p>An example of this setup can be found in the samples section of the Framework (<code>SampleApplication1</code>).</p>
+
+<p>You will find it easier to start coding by first creating a Muffin and adding Platforms/Services as the need arrives later. Below you will find templates needed to create a  <code>Layer</code> class.</p>
+
+<h2>
+<a name="layers" class="anchor" href="#layers"><span class="octicon octicon-link"></span></a>Layers</h2>
+
+<p>In MuffinFramework, you split your code in three layers. These layers each have their own purpose. Once a class inherits one of the three basic Layer classes, it will be automatically detected using MEF and there is no need to reference it anywhere in your code. By default, only the assembly calling <code>MuffinClient</code>'s constructor will be searched for classes to load. MuffinFramework can also search through multiple assemblies. This will be explained in another section of the readme.</p>
+
+<h3>
+<a name="muffins" class="anchor" href="#muffins"><span class="octicon octicon-link"></span></a>Muffins</h3>
+
+<p>Muffins are the part of your program that do the actual work and they usually don't provide functions for other classes to use as they control their actions themselves. MuffinFramework's pattern is suitable for bots because it is bots that do automated actions and are not given tasks from a user. Muffins are loaded after all other layers and can access both Services and Platforms. </p>
+
+<p><strong>Template:</strong></p>
+
+<div class="highlight highlight-csharp"><pre><span class="k">using</span> <span class="nn">MuffinFramework.Muffin</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Muffin1</span> <span class="p">:</span> <span class="n">Muffin</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Enable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Your code here...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="services" class="anchor" href="#services"><span class="octicon octicon-link"></span></a>Services</h3>
+
+<p>Services function as a communication layer between Muffins and Platforms. They almost always depend on one or more platforms and enhance their functionality. Services are loaded after all Platforms are.</p>
+
+<p><strong>Template:</strong></p>
+
+<div class="highlight highlight-csharp"><pre><span class="k">using</span> <span class="nn">MuffinFramework.Service</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Service1</span> <span class="p">:</span> <span class="n">Service</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Enable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Your code here...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="platforms" class="anchor" href="#platforms"><span class="octicon octicon-link"></span></a>Platforms</h3>
+
+<p>Platforms communicate with other external systems. This can be the console output, an IRC connection to a server or any kind of web API. Platforms establish and maintain these connections. They are the first group of classes to be loaded.</p>
+
+<p><strong>Template:</strong></p>
+
+<div class="highlight highlight-csharp"><pre><span class="k">using</span> <span class="nn">MuffinFramework.Platform</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Platform1</span> <span class="p">:</span> <span class="n">Platform</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Enable</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Your code here...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="accessing-other-layers" class="anchor" href="#accessing-other-layers"><span class="octicon octicon-link"></span></a>Accessing other layers</h2>
+
+<p>To consume a <code>Platform</code>/<code>Service</code>, you must first retrieve the loaded instance from its <code>Loader</code>.</p>
+
+<div class="highlight highlight-csharp"><pre><span class="n">Platform1</span> <span class="n">platform</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">PlatformLoader</span><span class="p">.</span><span class="n">Get</span><span class="p">&lt;</span><span class="n">Platform1</span><span class="p">&gt;();</span>
+</pre></div>
+
+<p>An example of this in action can be found in <code>SampleApplication2</code>.</p>
+
+<p><code>LayerLoader&lt;,&gt;.Get&lt;TType&gt;</code> returns the loaded instance of the given <code>TType</code>. If no  <code>Layer</code> can be cast to <code>TType</code>, a <code>KeyNotFoundException</code> is thrown.</p>
+
+<p>LayerLoaders of higher layers are not available to lower ones. (Ex. you can not access <code>MuffinLoader</code> from a <code>Service</code>)</p>
+
+<p>Be careful when querying for classes in the same layer: there is no guarantee that a  <code>Layer</code> will load before another and the loading order of layers might change from time to time. Therefore you must wait for all classes in a layer to load before querying a class. <code>LayerLoader&lt;,&gt;.EnableComplete</code> event can be useful in these situations. (See <code>SampleApplication3</code>)</p>
+
+<h2>
+<a name="parts" class="anchor" href="#parts"><span class="octicon octicon-link"></span></a>Parts</h2>
+
+<p>Not every <code>Muffin</code>/<code>Service</code>/<code>Protocol</code> has basic tasks to do, some of them might need to be split in smaller separate parts that work together. Parts are there for this exact purpose. Instead of having to use multiple Muffins where the process of accessing other Muffins is complicated, you can use MuffinParts. MuffinParts are activated by a Muffin or another <code>MuffinPart</code>.
+They require a <code>TProtocol</code> class or interface, this can be your main class or any other object and is provided by the creator of the <code>MuffinPart</code>. This object will then be stored in the <code>MuffinPart.Host</code> property.</p>
+
+<p>To create a part, inherit from <code>MuffinPart&lt;TProtocol&gt;</code>/<code>ServicePart&lt;TProtocol&gt;</code>/<code>PlatformPart&lt;TProtocol&gt;</code> instead of  the base classes. As the type parameter  <code>TProtocol</code>, you can use your main  <code>Layer</code> class (e.g. <code>MuffinPart&lt;Muffin1&gt;</code>). Everything else will be the same as working with normal  <code>Layer</code> classes.</p>
+
+<p>Parts are not initialized by MuffinFramework automatically and must be "Enabled" by another class. This class can be a  <code>Layer</code> or even another  <code>LayerPart</code>.</p>
+
+<p>The following syntax can be used for this purpose:</p>
+
+<div class="highlight highlight-csharp"><pre><span class="n">LayerPart</span><span class="p">&lt;,&gt;.</span><span class="n">EnablePart</span><span class="p">&lt;</span><span class="n">TPart</span><span class="p">,</span> <span class="n">TProtocol</span><span class="p">&gt;(</span><span class="n">TProtocol</span> <span class="n">host</span><span class="p">);</span>
+</pre></div>
+
+<p>Because in the following example the the class calling <code>EnablePart&lt;,&gt;(TProtocol host)</code> is used as the <code>TProtocol</code>, you can omit the host parameter. MuffinFramework will try to cast <code>this</code> to the given <code>TProtocol</code>.</p>
+
+<div class="highlight highlight-csharp"><pre><span class="c1">// These are equivalent</span>
+<span class="n">MuffinPart1</span> <span class="n">part1</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">EnablePart</span><span class="p">&lt;</span><span class="n">MuffinPart1</span><span class="p">,</span> <span class="n">Muffin1</span><span class="p">&gt;(</span><span class="k">this</span><span class="p">);</span>
+<span class="n">MuffinPart1</span> <span class="n">part2</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">EnablePart</span><span class="p">&lt;</span><span class="n">MuffinPart1</span><span class="p">,</span> <span class="n">Muffin1</span><span class="p">&gt;();</span>
+</pre></div>
+
+<p>If you want to avoid having to specify <code>TProtocol</code> every time you enable a part, change your main class so it inherits from <code>Muffin&lt;TProtocol&gt;</code>/<code>Service&lt;TProtocol&gt;</code>/<code>Platform&lt;TProtocol&gt;</code>. </p>
+
+<div class="highlight highlight-csharp"><pre><span class="k">public</span> <span class="k">class</span> <span class="nc">Muffin1</span> <span class="p">:</span> <span class="n">Muffin</span><span class="p">&lt;</span><span class="n">Muffin1</span><span class="p">&gt;</span>
+</pre></div>
+
+<p>Now you can omit the second type parameter for <code>EnablePart</code>.</p>
+
+<div class="highlight highlight-csharp"><pre><span class="c1">// These are equivalent as well</span>
+<span class="n">MuffinPart1</span> <span class="n">part1</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">EnablePart</span><span class="p">&lt;</span><span class="n">MuffinPart1</span><span class="p">&gt;(</span><span class="k">this</span><span class="p">);</span>
+<span class="n">MuffinPart1</span> <span class="n">part2</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">EnablePart</span><span class="p">&lt;</span><span class="n">MuffinPart1</span><span class="p">&gt;();</span>
+</pre></div>
+
+<p>For more help, take a look at <code>SampleApplication4</code> which contains some usage examples.</p>
+
+<h2>
+<a name="idisposable-support" class="anchor" href="#idisposable-support"><span class="octicon octicon-link"></span></a>IDisposable support</h2>
+
+<p>All three base classes <code>Muffin</code>, <code>Service</code> and <code>Platform</code> and also the three part classes <code>MuffinPart</code>, <code>ServicePart</code> and <code>PlatformPart</code> implement <code>IDisposable</code>. 
+<code>MuffinClient.Dispose()</code> will dispose all  <code>Layer</code> classes loaded by MuffinFramework in the following order: Muffins, then Services and finally the Platforms. It is recommended to call this function before exiting so that  <code>Layer</code> classes can rely on  <code>Dispose()</code> for doing tasks such as saving user data, gracefully closing TCP connections etc.</p>
+
+<h2>
+<a name="managed-extensibility-framework" class="anchor" href="#managed-extensibility-framework"><span class="octicon octicon-link"></span></a>Managed Extensibility Framework</h2>
+
+<p>To load classes not located in the current assembly, you must edit <code>MuffinClient.Catalog</code> to add or remove catalogs. For loading classes, MuffinFramework uses MEF and you will need to reference <code>System.ComponentModel.Composite</code> to edit the catalog. More help for MEF catalogs can be found <a href="https://mef.codeplex.com/wikipage?title=Using%20Catalogs">here</a>. </p>
+
+<p>You can also take a look at <code>SampleApplication6</code> which contains a separate library for its <code>Muffin</code> classes.</p>
+        </section>
+
+        <footer>
+          Muffinframework is maintained by <a href="https://github.com/Yonom">Yonom</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
