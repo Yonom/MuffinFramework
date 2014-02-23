@@ -1,5 +1,7 @@
 **MuffinFramework** is a library that assists you in creating automated applications. These can be bots but MuffinFramework can also be used to add Plugin functionality to an existing program, as Plugins are automated as well and do not require any direct interaction from other parts of your software.
 
+[![Build status](https://ci-beta.appveyor.com/api/projects/status/ioo76wsh9822ktfw)](https://ci-beta.appveyor.com/project/Yonom13339/muffinframework)
+
 MuffinFramework requires Microsoft Visual Studio 2010 or higher and supports the following frameworks:
 
 - .NET Framework 4 and higher
