@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
+using System.ComponentModel.Composition.Primitives;
+using System.Linq;
 using System.Reflection;
 using MuffinFramework.Muffins;
 using MuffinFramework.Platforms;
@@ -22,6 +25,34 @@ namespace MuffinFramework
             this.AggregateCatalog = new AggregateCatalog();
             this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetCallingAssembly()));
 
+            this.InitLoaders();
+        }
+
+        public MuffinClient(AggregateCatalog catalog)
+        {
+            this.AggregateCatalog = catalog;
+
+            this.InitLoaders();
+        }
+
+        public MuffinClient(ComposablePartCatalog catalog1, params ComposablePartCatalog[] catalogs)
+            : this(catalogs.Concat(new[] { catalog1 }))
+        {
+        }
+
+        public MuffinClient(IEnumerable<ComposablePartCatalog> catalogs)
+        {
+            this.AggregateCatalog = new AggregateCatalog();
+            foreach (var catalog in catalogs)
+            {
+                this.AggregateCatalog.Catalogs.Add(catalog);
+            }
+
+            this.InitLoaders();
+        }
+
+        private void InitLoaders()
+        {
             this.PlatformLoader = new PlatformLoader();
             this.ServiceLoader = new ServiceLoader();
             this.MuffinLoader = new MuffinLoader();
