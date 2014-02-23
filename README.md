@@ -1,11 +1,11 @@
 **MuffinFramework** is a library that assists you in creating automated applications. These can be bots but MuffinFramework can also be used to add Plugin functionality to an existing program, as Plugins are automated as well and do not require any direct interaction from other parts of your software.
 
-MuffinFramework requires Microsoft Visual Studio 2010 or higher and one of the following frameworks:
+MuffinFramework requires Microsoft Visual Studio 2010 or higher and supports the following frameworks:
 
 - .NET Framework 4 and higher
 - Silverlight 5
 
-Programs using MuffinFramework will have their code split in three different "Layers". The Platform layer is the lowest one, then there is the Servies layer and finally there comes the Muffin layer. MuffinFramework will take care of loading your classes so you don't have to write a lot of code to "glue" these parts together. 
+Programs using MuffinFramework will have their code split in three different "Layers". The Platform layer is the lowest one, then there is the Services layer and finally there comes the Muffin layer. MuffinFramework will take care of loading your classes so you don't have to write a lot of code to "glue" these parts together. 
 
 This allows you to spend more time writing the actual code and results in a much cleaner code base.
 
