@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication6", "Sampl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApplication6.Muffins", "Samples\SampleApplication6.Muffins\SampleApplication6.Muffins.csproj", "{EA99F931-A49D-41C7-95D8-507AA0F57F46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuffinFramework.Tests", "MuffinFramework.Tests\MuffinFramework.Tests.csproj", "{F4379B2C-75ED-41E9-B658-484380E39111}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA99F931-A49D-41C7-95D8-507AA0F57F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4379B2C-75ED-41E9-B658-484380E39111}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4379B2C-75ED-41E9-B658-484380E39111}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4379B2C-75ED-41E9-B658-484380E39111}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4379B2C-75ED-41E9-B658-484380E39111}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
