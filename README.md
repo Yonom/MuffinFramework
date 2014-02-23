@@ -10,7 +10,7 @@ Programs using MuffinFramework will have their code split in three different "La
 This allows you to spend more time writing the actual code and results in a much cleaner code base.
 
 ## Quick Start guide
-To start using MuffinFramework, create a new console application and add MuffinFramework.dll as a resource in visual studio.
+To start using MuffinFramework, create a new console application and add ```MuffinFramework.dll``` as a resource in visual studio.
 Now edit your ```Program.cs``` so it looks like this.
 
 ```csharp
@@ -45,7 +45,7 @@ An example of this setup can be found in the samples section of the Framework (`
 You will find it easier to start coding by first creating a Muffin and adding Platforms/Services as the need arrives later. Below you will find templates needed to create a  ```Layer ``` class.
 
 ## Layers
-In MuffinFramework, you split your code in three layers. These layers each have their own purpose. Once a class inherits one of the three basic Layer classes, it will be automatically detected using Reflection and there is no need to reference it anywhere in your code. By default, only the assembly calling ```MuffinClient```'s constructor will be searched for classes to load. MuffinFramework can also search through multiple assemblies. This will be explained in another section of the readme.
+In MuffinFramework, you split your code in three layers. These layers each have their own purpose. Once a class inherits one of the three basic Layer classes, it will be automatically detected using MEF and there is no need to reference it anywhere in your code. By default, only the assembly calling ```MuffinClient```'s constructor will be searched for classes to load. MuffinFramework can also search through multiple assemblies. This will be explained in another section of the readme.
 
 
 ### Muffins
@@ -81,7 +81,7 @@ public class Service1 : Service
 ```
 
 ### Platforms
-Platforms communicate with other external systems. This can be the console output, an IRC connection to a server or any kind of web API. Platforms establish and maintain these connections.
+Platforms communicate with other external systems. This can be the console output, an IRC connection to a server or any kind of web API. Platforms establish and maintain these connections. They are the first group of classes to be loaded.
 
 **Template:**
 ```csharp
@@ -104,17 +104,17 @@ Platform1 platform = this.PlatformLoader.Get<Platform1>();
 
 An example of this in action can be found in ```SampleApplication2```.
 
- ```LayerLoader<,>.Get<TType>``` returns the loaded instance a given ```TType```. If no  ```Layer ``` can be converted to ```TType```, a ```KeyNotFoundException``` is thrown.
+ ```LayerLoader<,>.Get<TType>``` returns the loaded instance of the given ```TType```. If no  ```Layer ``` can be cast to ```TType```, a ```KeyNotFoundException``` is thrown.
 
 LayerLoaders of higher layers are not available to lower ones. (Ex. you can not access ```MuffinLoader``` from a ```Service```)
 
-Be careful when querying for classes in the same layer: there is no guarantee that a  ```Layer ``` will load before another and the load order of layers might change from time to time. Therefore you must wait for all classes in a layer are loaded before querying a class. ```LayerLoader<,>.EnableComplete``` event can be useful in these situations. (See ```SampleApplication3```)
+Be careful when querying for classes in the same layer: there is no guarantee that a  ```Layer ``` will load before another and the loading order of layers might change from time to time. Therefore you must wait for all classes in a layer to load before querying a class. ```LayerLoader<,>.EnableComplete``` event can be useful in these situations. (See ```SampleApplication3```)
 
 ## Parts
 Not every ```Muffin```/```Service```/```Protocol``` has basic tasks to do, some of them might need to be split in smaller separate parts that work together. Parts are there for this exact purpose. Instead of having to use multiple Muffins where the process of accessing other Muffins is complicated, you can use MuffinParts. MuffinParts are activated by a Muffin or another ```MuffinPart```.
 They require a ```TProtocol``` class or interface, this can be your main class or any other object and is provided by the creator of the ```MuffinPart```. This object will then be stored in the ```MuffinPart.Host``` property.
 
-To create a part, inherit from ```MuffinPart<TProtocol>```/```ServicePart<TProtocol>```/```PlatformPart<TProtocol>``` instead of  the base classes. As the type parameter  ```TProtocol ```, you can use your main  ```Layer ``` class (eg. ```MuffinPart<Muffin1>```). Everything else will be the same as working with normal  ```Layer ``` classes.
+To create a part, inherit from ```MuffinPart<TProtocol>```/```ServicePart<TProtocol>```/```PlatformPart<TProtocol>``` instead of  the base classes. As the type parameter  ```TProtocol ```, you can use your main  ```Layer ``` class (e.g. ```MuffinPart<Muffin1>```). Everything else will be the same as working with normal  ```Layer ``` classes.
 
 Parts are not initialized by MuffinFramework automatically and must be "Enabled" by another class. This class can be a  ```Layer ``` or even another  ```LayerPart ```.
 
@@ -149,5 +149,7 @@ All three base classes ```Muffin```, ```Service``` and ```Platform``` and also t
 ```MuffinClient.Dispose()``` will dispose all  ```Layer ``` classes loaded by MuffinFramework in the following order: Muffins, then Services and finally the Platforms. It is recommended to call this function before exiting so that  ```Layer ``` classes can rely on  ```Dispose() ``` for doing tasks such as saving user data, gracefully closing TCP connections etc.
 
 ## Managed Extensibility Framework
-To load classes not located in the current assembly, you must edit ```MuffinClient.Catalog``` to add or remove catalogs. For loading classes, MuffinFramework uses MEF and you will need to reference ```System.ComponentModel.Composite```. More help for MEF catalogs can be found [here][1]. You can also take a look at ```SampleApplication6``` which contains a separate library for its ```Muffin``` classes.
+To load classes not located in the current assembly, you must edit ```MuffinClient.Catalog``` to add or remove catalogs. For loading classes, MuffinFramework uses MEF and you will need to reference ```System.ComponentModel.Composite``` to edit the catalog. More help for MEF catalogs can be found [here][1]. 
+
+You can also take a look at ```SampleApplication6``` which contains a separate library for its ```Muffin``` classes.
   [1]: https://mef.codeplex.com/wikipage?title=Using%20Catalogs 
