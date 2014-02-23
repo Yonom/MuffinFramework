@@ -1,6 +1,6 @@
 ﻿using System;
+using System.ComponentModel.Composition.Hosting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MuffinFramework.Muffins;
 
 namespace MuffinFramework.Tests
 {
@@ -8,11 +8,27 @@ namespace MuffinFramework.Tests
     public class MuffinClientTests
     {
         [TestMethod]
-        public void LoadMuffinTest()
+        public void DoubleStartTest()
         {
-            var client = new MuffinClient();
+            // arrange
+            InvalidOperationException expectedException = null;
+            var client = new MuffinClient(new AggregateCatalog());
             client.Start();
-            client.Dispose();
+
+            // act
+            try
+            {
+                // try to start the client a second time...
+                client.Start();
+            }
+            catch (InvalidOperationException ex)
+            {
+                expectedException = ex;
+            }
+
+
+            // assert
+            Assert.IsNotNull(expectedException);
         }
     }
 }

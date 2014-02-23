@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -53,9 +54,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="LayerBase\LayerBaseTester.cs" />
+    <Compile Include="LayerBase\LayerBaseTests.cs" />
+    <Compile Include="LayerLoaderTests.cs" />
+    <Compile Include="LayerPart\LayerPartTester.cs" />
+    <Compile Include="LayerPart\LayerPartTests.cs" />
     <Compile Include="MuffinClientTests.cs" />
-    <Compile Include="Muffins\EmptyMuffin.cs" />
+    <Compile Include="Muffins\MuffinTests.cs" />
+    <Compile Include="Platforms\PlatformTests.cs" />
+    <Compile Include="Services\ServiceTester.cs" />
+    <Compile Include="Platforms\PlatformTester.cs" />
+    <Compile Include="Muffins\MuffinTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
