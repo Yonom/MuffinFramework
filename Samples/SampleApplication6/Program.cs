@@ -19,7 +19,7 @@ namespace SampleApplication6
 
             // Get the MuffinsAssembly and add it to the clients catalog
             Assembly muffinsAssembly = typeof(Muffin1).Assembly;
-            client.Catalog.Catalogs.Add(new AssemblyCatalog(muffinsAssembly));
+            client.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(muffinsAssembly));
 
             client.Start();
 

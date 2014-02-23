@@ -12,15 +12,15 @@ namespace MuffinFramework
         private readonly object _lockObj = new object();
 
         public bool IsStarted { get; private set; }
-        public AggregateCatalog Catalog { get; private set; }
+        public AggregateCatalog AggregateCatalog { get; private set; }
         public PlatformLoader PlatformLoader { get; private set; }
         public ServiceLoader ServiceLoader { get; private set; }
         public MuffinLoader MuffinLoader { get; private set; }
 
         public MuffinClient()
         {
-            this.Catalog = new AggregateCatalog();
-            this.Catalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetCallingAssembly()));
+            this.AggregateCatalog = new AggregateCatalog();
+            this.AggregateCatalog.Catalogs.Add(new AssemblyCatalog(Assembly.GetCallingAssembly()));
 
             this.PlatformLoader = new PlatformLoader();
             this.ServiceLoader = new ServiceLoader();
@@ -36,9 +36,9 @@ namespace MuffinFramework
                 this.IsStarted = true;
             }
 
-            this.PlatformLoader.Enable(this.Catalog, new PlatformArgs(this.PlatformLoader));
-            this.ServiceLoader.Enable(this.Catalog, new ServiceArgs(this.PlatformLoader, this.ServiceLoader));
-            this.MuffinLoader.Enable(this.Catalog, new MuffinArgs(this.PlatformLoader, this.ServiceLoader, this.MuffinLoader));
+            this.PlatformLoader.Enable(this.AggregateCatalog, new PlatformArgs(this.PlatformLoader));
+            this.ServiceLoader.Enable(this.AggregateCatalog, new ServiceArgs(this.PlatformLoader, this.ServiceLoader));
+            this.MuffinLoader.Enable(this.AggregateCatalog, new MuffinArgs(this.PlatformLoader, this.ServiceLoader, this.MuffinLoader));
         }
 
         public virtual void Dispose()
@@ -46,7 +46,7 @@ namespace MuffinFramework
             this.MuffinLoader.Dispose();
             this.ServiceLoader.Dispose();
             this.PlatformLoader.Dispose();
-            this.Catalog.Dispose();
+            this.AggregateCatalog.Dispose();
         }
     }
 }
