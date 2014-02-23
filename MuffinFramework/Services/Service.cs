@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 
-namespace MuffinFramework.Service
+namespace MuffinFramework.Services
 {
     [InheritedExport(typeof(IService))]
     public abstract class Service : ServicePart<object>, IService

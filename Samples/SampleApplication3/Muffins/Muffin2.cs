@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using MuffinFramework.Muffin;
+using MuffinFramework.Muffins;
 
 namespace SampleApplication3.Muffins
 {

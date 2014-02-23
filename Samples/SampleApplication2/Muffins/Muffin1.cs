@@ -1,5 +1,5 @@
 ﻿using System.Threading;
-using MuffinFramework.Muffin;
+using MuffinFramework.Muffins;
 using SampleApplication2.Services;
 
 namespace SampleApplication2.Muffins

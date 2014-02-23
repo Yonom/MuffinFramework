@@ -1,6 +1,6 @@
-﻿using MuffinFramework.Platform;
+﻿using MuffinFramework.Platforms;
 
-namespace MuffinFramework.Service
+namespace MuffinFramework.Services
 {
     public abstract class ServicePart<TProtocol> : LayerPart<TProtocol, ServiceArgs>
     {

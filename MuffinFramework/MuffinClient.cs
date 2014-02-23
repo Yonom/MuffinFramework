@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
-using MuffinFramework.Muffin;
-using MuffinFramework.Platform;
-using MuffinFramework.Service;
+using MuffinFramework.Muffins;
+using MuffinFramework.Platforms;
+using MuffinFramework.Services;
 
 namespace MuffinFramework
 {

@@ -1,7 +1,7 @@
-﻿using MuffinFramework.Platform;
-using MuffinFramework.Service;
+﻿using MuffinFramework.Platforms;
+using MuffinFramework.Services;
 
-namespace MuffinFramework.Muffin
+namespace MuffinFramework.Muffins
 {
     public class MuffinArgs
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-using MuffinFramework.Service;
+using MuffinFramework.Services;
 using SampleApplication2.Platforms;
 
 namespace SampleApplication2.Services

@@ -1,4 +1,4 @@
-﻿using MuffinFramework.Muffin;
+﻿using MuffinFramework.Muffins;
 using SampleApplication2.Platforms;
 
 namespace SampleApplication2.Muffins

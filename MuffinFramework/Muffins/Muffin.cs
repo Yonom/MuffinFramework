@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 
-namespace MuffinFramework.Muffin
+namespace MuffinFramework.Muffins
 {
     [InheritedExport(typeof(IMuffin))]
     public abstract class Muffin : MuffinPart<object>, IMuffin

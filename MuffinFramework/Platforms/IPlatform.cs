@@ -1,4 +1,4 @@
-﻿namespace MuffinFramework.Platform
+﻿namespace MuffinFramework.Platforms
 {
     public interface IPlatform : ILayerBase<PlatformArgs>
     {

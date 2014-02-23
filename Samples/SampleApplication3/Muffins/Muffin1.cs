@@ -1,5 +1,5 @@
 ﻿using System;
-using MuffinFramework.Muffin;
+using MuffinFramework.Muffins;
 
 namespace SampleApplication3.Muffins
 {

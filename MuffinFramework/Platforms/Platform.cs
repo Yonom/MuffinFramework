@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 
-namespace MuffinFramework.Platform
+namespace MuffinFramework.Platforms
 {
     [InheritedExport(typeof(IPlatform))]
     public abstract class Platform : PlatformPart<object>, IPlatform

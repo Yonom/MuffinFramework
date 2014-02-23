@@ -53,9 +53,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="MuffinClientTests.cs" />
+    <Compile Include="Muffins\EmptyMuffin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MuffinFramework\MuffinFramework.csproj">
+      <Project>{a58dc523-d333-4d24-ba57-6ff1c2cae43d}</Project>
+      <Name>MuffinFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
