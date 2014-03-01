@@ -27,13 +27,13 @@ namespace SampleApplication3.Muffins
             muffin2.Text = "New Text!";
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        private void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (!disposing) return;
 

@@ -6,6 +6,7 @@ namespace MuffinFramework
     public abstract class LayerBase<TArgs> : ILayerBase<TArgs>
     {
         private readonly object _lockObj = new object();
+
         private readonly List<ILayerBase<TArgs>> _parts = new List<ILayerBase<TArgs>>();
         private TArgs _args;
 

@@ -18,13 +18,13 @@ namespace SampleApplication2.Muffins
             // Here, you can log the recieved string
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
 
-        private void Dispose(bool disposing)
+        protected override void Dispose(bool disposing)
         {
             if (!disposing) return;
 
