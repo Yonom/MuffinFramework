@@ -3,7 +3,7 @@ using MuffinFramework.Muffins;
 
 namespace SampleApplication3.Muffins
 {
-    public class Muffin1 : Muffin
+    public sealed class Muffin1 : Muffin
     {
         protected override void Enable()
         {
@@ -21,16 +21,23 @@ namespace SampleApplication3.Muffins
 
         void MuffinLoader_EnableComplete(object sender, EventArgs e)
         {
-            // It is now safe to access Muffin2.
+            // It is now safe to access Muffin2
             var muffin2 = this.MuffinLoader.Get<Muffin2>();
 
             muffin2.Text = "New Text!";
         }
 
-        public override void Dispose()
+        public void Dispose()
         {
-            base.Dispose();
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
+        private void Dispose(bool disposing)
+        {
+            if (!disposing) return;
+
+            base.Dispose();
             this.MuffinLoader.EnableComplete -= this.MuffinLoader_EnableComplete;
         }
     }

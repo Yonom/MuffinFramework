@@ -9,9 +9,10 @@ using System.Linq;
 
 namespace MuffinFramework
 {
-    public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs> where TLayer : class, ILayerBase<TArgs>
+    public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs> where TLayer : class, ILayerBase<TArgs>, IDisposable
     {
         private readonly object _lockObj = new object();
+
         [ImportMany]
         private TLayer[] _importedLayers = null;
         private CompositionContainer _container;
@@ -21,7 +22,7 @@ namespace MuffinFramework
         public event EventHandler EnableComplete;
         private void OnEnableComplete()
         {
-            EventHandler handler = this.EnableComplete;
+            var handler = this.EnableComplete;
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
@@ -33,18 +34,17 @@ namespace MuffinFramework
 
         public void Enable(ComposablePartCatalog catalog, TArgs args)
         {
-            lock (this._lockObj)
-            {
+            lock (this._lockObj) {
                 if (this.IsEnabled)
                     throw new InvalidOperationException("LayerLoader has already been enabled.");
+
                 this.IsEnabled = true;
             }
 
             this._container = new CompositionContainer(catalog);
             this._container.ComposeParts(this);
 
-            foreach (var l in this._importedLayers)
-            {
+            foreach (var l in this._importedLayers) {
                 l.Enable(args);
                 this._layers.Add(l);
             }
@@ -54,12 +54,10 @@ namespace MuffinFramework
 
         public TType Get<TType>() where TType : class, ILayerBase<TArgs>
         {
-            try
-            {
+            try {
                 return this._layers.OfType<TType>().First();
-            }
-            catch (InvalidOperationException ex)
-            {
+
+            } catch (InvalidOperationException ex) {
                 throw new KeyNotFoundException(string.Format("Requested Type was not found: {0}", typeof(TType)), ex);
             }
         }
@@ -76,6 +74,14 @@ namespace MuffinFramework
 
         public virtual void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing) return;
+
             if (this._container != null)
                 this._container.Dispose();
         }
