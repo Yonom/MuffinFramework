@@ -4,7 +4,7 @@ using SampleApplication2.Platforms;
 
 namespace SampleApplication2.Muffins
 {
-    public sealed class LogMuffin : Muffin
+    public class LogMuffin : Muffin
     {
         private ConsolePlatform _console;
         protected override void Enable()
@@ -16,12 +16,6 @@ namespace SampleApplication2.Muffins
         void _console_OutputRecieved(object sender, string e)
         {
             // Here, you can log the recieved string
-        }
-
-        public override void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         protected override void Dispose(bool disposing)

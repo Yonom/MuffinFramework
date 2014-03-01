@@ -37,7 +37,7 @@ namespace MuffinFramework
 
         protected TPart EnablePart<TPart, TProtocol>() where TPart : class, ILayerPart<TProtocol, TArgs>, new()
         {
-            var host = (TProtocol) (this as object);
+            var host = (TProtocol) (object) this;
             return this.EnablePart<TPart, TProtocol>(host);
         }
 
