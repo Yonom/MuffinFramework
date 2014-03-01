@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using MuffinFramework;
 
 namespace SampleApplication1
@@ -13,13 +14,24 @@ namespace SampleApplication1
         // Platform1 -> Service1 -> Muffin1
         static void Main()
         {
-            var client = new MuffinClient();
-            client.Start();
+            var watch = new Stopwatch();
 
-            Console.WriteLine("Press enter to exit...");
-            Console.ReadLine();
+            do {
+                watch.Restart();
+                var client = new MuffinClient();
+                client.Start();
+                watch.Stop();
 
-            client.Dispose();
+                Console.WriteLine(Environment.NewLine +
+                                  string.Format("Startup time: {0:#.00}ms", watch.Elapsed.TotalMilliseconds) +
+                                  Environment.NewLine +
+                                  "Press any key to repeat the test! Press the spacebar to exit!" +
+                                  Environment.NewLine +
+                                  new string('_', Console.BufferWidth));
+
+                client.Dispose();
+
+            } while (Console.ReadKey(true).Key != ConsoleKey.Spacebar);
         }
     }
 }

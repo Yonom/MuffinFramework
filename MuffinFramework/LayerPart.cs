@@ -7,15 +7,14 @@ namespace MuffinFramework
         private readonly object _lockObj = new object();
 
         public TProtocol Host { get; private set; }
+
         public void Enable(TProtocol host, TArgs args)
         {
-            lock (this._lockObj)
-            {
+            lock (this._lockObj) {
                 if (this.IsEnabled)
                     throw new InvalidOperationException("LayerPart has already been enabled.");
 
                 this.Host = host;
-
                 this.Enable(args);
             }
         }

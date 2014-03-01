@@ -35,16 +35,14 @@ namespace MuffinFramework
             this.InitLoaders();
         }
 
-        public MuffinClient(ComposablePartCatalog catalog1, params ComposablePartCatalog[] catalogs)
-            : this(catalogs.Concat(new[] { catalog1 }))
+        public MuffinClient(ComposablePartCatalog catalog1, params ComposablePartCatalog[] catalogs) : this(catalogs.Concat(new[] { catalog1 }))
         {
         }
 
         public MuffinClient(IEnumerable<ComposablePartCatalog> catalogs)
         {
             this.AggregateCatalog = new AggregateCatalog();
-            foreach (var catalog in catalogs)
-            {
+            foreach (var catalog in catalogs) {
                 this.AggregateCatalog.Catalogs.Add(catalog);
             }
 
@@ -60,10 +58,10 @@ namespace MuffinFramework
 
         public virtual void Start()
         {
-            lock (this._lockObj)
-            {
+            lock (this._lockObj) {
                 if (this.IsStarted)
                     throw new InvalidOperationException("MuffinClient has already been started.");
+
                 this.IsStarted = true;
             }
 
@@ -74,6 +72,14 @@ namespace MuffinFramework
 
         public virtual void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposing) return;
+
             this.MuffinLoader.Dispose();
             this.ServiceLoader.Dispose();
             this.PlatformLoader.Dispose();
