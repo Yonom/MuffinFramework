@@ -4,7 +4,7 @@ using MuffinFramework.Muffins;
 
 namespace SampleApplication3.Muffins
 {
-    internal class Muffin2 : Muffin
+    class Muffin2 : Muffin
     {
         private Thread _writeThread;
 

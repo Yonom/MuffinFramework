@@ -1,16 +1,14 @@
 ﻿namespace MuffinFramework.Tests.LayerBase
 {
-    internal class LayerBaseTester<TArgs> : LayerBase<TArgs>
+    class LayerBaseTester<TArgs> : LayerBase<TArgs>
     {
         public bool EnableWasCalled;
-
         protected override void Enable()
         {
             this.EnableWasCalled = true;
         }
 
-        public TPart TestEnablePart<TPart, TProtocol>(TProtocol host)
-            where TPart : class, ILayerPart<TProtocol, TArgs>, new()
+        public TPart TestEnablePart<TPart, TProtocol>(TProtocol host) where TPart : class, ILayerPart<TProtocol, TArgs>, new()
         {
             return this.EnablePart<TPart, TProtocol>(host);
         }

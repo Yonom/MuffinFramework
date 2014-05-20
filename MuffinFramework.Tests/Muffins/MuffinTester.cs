@@ -4,7 +4,7 @@ using MuffinFramework.Services;
 
 namespace MuffinFramework.Tests.Muffins
 {
-    internal class MuffinTester : Muffin
+    class MuffinTester : Muffin
     {
         public MuffinLoader TestMuffinLoader
         {

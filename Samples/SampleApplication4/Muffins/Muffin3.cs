@@ -18,7 +18,6 @@ namespace SampleApplication4.Muffins
 
             this.Part1 = this.EnablePart<Muffin3Part1>(protocol);
         }
-
         public void HelloWorld()
         {
             Console.WriteLine("Hello world from Muffin3!");

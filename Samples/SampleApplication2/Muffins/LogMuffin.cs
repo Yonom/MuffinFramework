@@ -1,4 +1,5 @@
-﻿using MuffinFramework.Muffins;
+﻿using System;
+using MuffinFramework.Muffins;
 using SampleApplication2.Platforms;
 
 namespace SampleApplication2.Muffins
@@ -6,14 +7,13 @@ namespace SampleApplication2.Muffins
     public class LogMuffin : Muffin
     {
         private ConsolePlatform _console;
-
         protected override void Enable()
         {
             this._console = this.PlatformLoader.Get<ConsolePlatform>();
             this._console.OutputRecieved += this._console_OutputRecieved;
         }
 
-        private void _console_OutputRecieved(object sender, string e)
+        void _console_OutputRecieved(object sender, string e)
         {
             // Here, you can log the recieved string
         }

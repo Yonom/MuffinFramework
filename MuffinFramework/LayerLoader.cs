@@ -11,27 +11,30 @@ namespace MuffinFramework
 {
     public class LayerLoader<TLayer, TArgs> : ILayerLoader<TArgs> where TLayer : class, ILayerBase<TArgs>, IDisposable
     {
-        [ImportMany]
-        private readonly TLayer[] _importedLayers = null;
-
-        private readonly List<TLayer> _layers = new List<TLayer>();
         private readonly object _lockObj = new object();
 
+        [ImportMany]
+        private TLayer[] _importedLayers = null;
         private CompositionContainer _container;
 
+        public bool IsEnabled { get; private set; }
+
+        public event EventHandler EnableComplete;
+        private void OnEnableComplete()
+        {
+            var handler = this.EnableComplete;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        private readonly List<TLayer> _layers = new List<TLayer>();
         public ReadOnlyCollection<TLayer> Layers
         {
             get { return new ReadOnlyCollection<TLayer>(this._layers); }
         }
 
-        public bool IsEnabled { get; private set; }
-
-        public event EventHandler EnableComplete;
-
         public void Enable(ComposablePartCatalog catalog, TArgs args)
         {
-            lock (this._lockObj)
-            {
+            lock (this._lockObj) {
                 if (this.IsEnabled)
                     throw new InvalidOperationException("LayerLoader has already been enabled.");
 
@@ -41,8 +44,7 @@ namespace MuffinFramework
             this._container = new CompositionContainer(catalog);
             this._container.ComposeParts(this);
 
-            foreach (TLayer l in this._importedLayers)
-            {
+            foreach (var l in this._importedLayers) {
                 l.Enable(args);
                 this._layers.Add(l);
             }
@@ -52,12 +54,10 @@ namespace MuffinFramework
 
         public TType Get<TType>() where TType : class, ILayerBase<TArgs>
         {
-            try
-            {
+            try {
                 return this._layers.OfType<TType>().First();
-            }
-            catch (InvalidOperationException ex)
-            {
+
+            } catch (InvalidOperationException ex) {
                 throw new KeyNotFoundException(string.Format("Requested Type was not found: {0}", typeof(TType)), ex);
             }
         }
@@ -72,16 +72,10 @@ namespace MuffinFramework
             return this.GetEnumerator();
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
-            this.Dispose(true);
+            Dispose(true);
             GC.SuppressFinalize(this);
-        }
-
-        private void OnEnableComplete()
-        {
-            EventHandler handler = this.EnableComplete;
-            if (handler != null) handler(this, EventArgs.Empty);
         }
 
         protected virtual void Dispose(bool disposing)

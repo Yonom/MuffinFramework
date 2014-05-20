@@ -9,7 +9,7 @@ namespace SampleApplication5.Muffins
         protected override void Enable()
         {
             var hostPlatform = this.PlatformLoader.Get<HostPlatform>();
-            string[] args = hostPlatform.GetArgsCallback();
+            var args = hostPlatform.GetArgsCallback();
 
             Console.WriteLine("Commandline arguemnts: " + string.Join(" ", args));
         }

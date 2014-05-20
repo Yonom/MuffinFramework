@@ -14,6 +14,12 @@ namespace MuffinFramework
     {
         private readonly object _lockObj = new object();
 
+        public bool IsStarted { get; private set; }
+        public AggregateCatalog AggregateCatalog { get; private set; }
+        public PlatformLoader PlatformLoader { get; private set; }
+        public ServiceLoader ServiceLoader { get; private set; }
+        public MuffinLoader MuffinLoader { get; private set; }
+
         public MuffinClient()
         {
             this.AggregateCatalog = new AggregateCatalog();
@@ -29,32 +35,18 @@ namespace MuffinFramework
             this.InitLoaders();
         }
 
-        public MuffinClient(ComposablePartCatalog catalog1, params ComposablePartCatalog[] catalogs)
-            : this(catalogs.Concat(new[] {catalog1}))
+        public MuffinClient(ComposablePartCatalog catalog1, params ComposablePartCatalog[] catalogs) : this(catalogs.Concat(new[] { catalog1 }))
         {
         }
 
         public MuffinClient(IEnumerable<ComposablePartCatalog> catalogs)
         {
             this.AggregateCatalog = new AggregateCatalog();
-            foreach (ComposablePartCatalog catalog in catalogs)
-            {
+            foreach (var catalog in catalogs) {
                 this.AggregateCatalog.Catalogs.Add(catalog);
             }
 
             this.InitLoaders();
-        }
-
-        public bool IsStarted { get; private set; }
-        public AggregateCatalog AggregateCatalog { get; private set; }
-        public PlatformLoader PlatformLoader { get; private set; }
-        public ServiceLoader ServiceLoader { get; private set; }
-        public MuffinLoader MuffinLoader { get; private set; }
-
-        public void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
         }
 
         private void InitLoaders()
@@ -66,8 +58,7 @@ namespace MuffinFramework
 
         public virtual void Start()
         {
-            lock (this._lockObj)
-            {
+            lock (this._lockObj) {
                 if (this.IsStarted)
                     throw new InvalidOperationException("MuffinClient has already been started.");
 
@@ -76,8 +67,13 @@ namespace MuffinFramework
 
             this.PlatformLoader.Enable(this.AggregateCatalog, new PlatformArgs(this.PlatformLoader));
             this.ServiceLoader.Enable(this.AggregateCatalog, new ServiceArgs(this.PlatformLoader, this.ServiceLoader));
-            this.MuffinLoader.Enable(this.AggregateCatalog,
-                new MuffinArgs(this.PlatformLoader, this.ServiceLoader, this.MuffinLoader));
+            this.MuffinLoader.Enable(this.AggregateCatalog, new MuffinArgs(this.PlatformLoader, this.ServiceLoader, this.MuffinLoader));
+        }
+
+        public virtual void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         protected virtual void Dispose(bool disposing)

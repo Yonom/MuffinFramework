@@ -19,7 +19,7 @@ namespace SampleApplication3.Muffins
             this.MuffinLoader.EnableComplete += this.MuffinLoader_EnableComplete;
         }
 
-        private void MuffinLoader_EnableComplete(object sender, EventArgs e)
+        void MuffinLoader_EnableComplete(object sender, EventArgs e)
         {
             // It is now safe to access Muffin2
             var muffin2 = this.MuffinLoader.Get<Muffin2>();

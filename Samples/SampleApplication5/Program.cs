@@ -4,7 +4,7 @@ using SampleApplication1.Platforms;
 
 namespace SampleApplication5
 {
-    internal class Program
+    class Program
     {
         // In bigger applications, there might be the need to pass data to a Muffin.
         // In this sample, the command line arguments are passed to Muffin1 using
@@ -12,11 +12,7 @@ namespace SampleApplication5
         //
         // The executable will be executed with the following commandline arguments:
         // "SOME USELESS COMMANDLINE ARGUMENTS"
-
-        private static MuffinClient _client;
-        private static string[] _args;
-
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             _args = args;
 
@@ -30,12 +26,15 @@ namespace SampleApplication5
             _client.Dispose();
         }
 
+        private static MuffinClient _client;
+        private static string[] _args;
+
         private static string[] GetArgs()
         {
             return _args;
         }
 
-        private static void PlatformLoader_EnableComplete(object sender, EventArgs e)
+        static void PlatformLoader_EnableComplete(object sender, EventArgs e)
         {
             var hostPlatform = _client.PlatformLoader.Get<HostPlatform>();
             hostPlatform.GetArgsCallback = GetArgs;

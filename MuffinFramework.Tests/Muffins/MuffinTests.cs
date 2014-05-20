@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MuffinFramework.Tests.Muffins
 {
     /// <summary>
-    ///     Summary description for MuffinTests
+    /// Summary description for MuffinTests
     /// </summary>
     [TestClass]
     public class MuffinTests

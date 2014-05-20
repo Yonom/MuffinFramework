@@ -3,7 +3,7 @@ using MuffinFramework;
 
 namespace SampleApplication2
 {
-    internal class Program
+    class Program
     {
         // This sample shows how a Muffin can consume a Platform / Service
         //
@@ -16,7 +16,7 @@ namespace SampleApplication2
         // 
         // Muffin1 does some tasks and reports its state to the console.
         // LogMuffin has the responsbility to log all the console output.
-        private static void Main()
+        static void Main()
         {
             var client = new MuffinClient();
             client.Start();

@@ -3,7 +3,7 @@ using MuffinFramework.Services;
 
 namespace MuffinFramework.Tests.Services
 {
-    internal class ServiceTester : Service
+    class ServiceTester : Service
     {
         public ServiceLoader TestServiceLoader
         {
