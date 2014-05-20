@@ -1,8 +1,9 @@
 ﻿namespace MuffinFramework.Tests.LayerPart
 {
-    class LayerPartTester<TProtocol, TArgs> : LayerPart<TProtocol, TArgs>
+    internal class LayerPartTester<TProtocol, TArgs> : LayerPart<TProtocol, TArgs>
     {
         public bool EnableWasCalled;
+
         protected override void Enable()
         {
             this.EnableWasCalled = true;
@@ -20,8 +21,7 @@
     }
 
     // A LayerPartTester that has itself as its Protocol
-    class LayerPartTester2<TArgs> : LayerPartTester<LayerPartTester2<TArgs>, TArgs>
+    internal class LayerPartTester2<TArgs> : LayerPartTester<LayerPartTester2<TArgs>, TArgs>
     {
-
     }
 }

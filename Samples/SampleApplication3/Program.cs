@@ -4,7 +4,7 @@ using MuffinFramework;
 
 namespace SampleApplication3
 {
-    class Program
+    internal class Program
     {
         // Sometimes, it might be necessary for Muffins to communicate with eachother.
         // This sample demonstrates how this can be done.
@@ -12,7 +12,7 @@ namespace SampleApplication3
         // Muffin1 wants to change the text that Muffin2 is writing to the console every
         // 500 miliseconds, but Muffin1 is loaded before Muffin2, so it can't change
         // the Text in its Enable() method.
-        static void Main()
+        private static void Main()
         {
             var client = new MuffinClient();
             client.Start();

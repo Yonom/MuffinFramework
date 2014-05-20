@@ -4,7 +4,7 @@ using MuffinFramework;
 
 namespace SampleApplication1
 {
-    class Program
+    internal class Program
     {
         // This sample demonstrates how easy it is to get started with MuffinFramework.
         // Each layer contains a simple hello world class. Note that these classes are 
@@ -12,11 +12,12 @@ namespace SampleApplication1
         //
         // The classes will be loaded in the following order:
         // Platform1 -> Service1 -> Muffin1
-        static void Main()
+        private static void Main()
         {
             var watch = new Stopwatch();
 
-            do {
+            do
+            {
                 watch.Restart();
                 var client = new MuffinClient();
                 client.Start();
@@ -30,7 +31,6 @@ namespace SampleApplication1
                                   new string('_', Console.BufferWidth));
 
                 client.Dispose();
-
             } while (Console.ReadKey(true).Key != ConsoleKey.Spacebar);
         }
     }

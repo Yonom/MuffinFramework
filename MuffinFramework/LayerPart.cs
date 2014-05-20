@@ -10,7 +10,8 @@ namespace MuffinFramework
 
         public void Enable(TProtocol host, TArgs args)
         {
-            lock (this._lockObj) {
+            lock (this._lockObj)
+            {
                 if (this.IsEnabled)
                     throw new InvalidOperationException("LayerPart has already been enabled.");
 

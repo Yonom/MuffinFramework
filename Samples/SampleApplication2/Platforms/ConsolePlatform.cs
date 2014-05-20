@@ -5,12 +5,13 @@ namespace SampleApplication2.Platforms
 {
     public class ConsolePlatform : Platform
     {
+        public delegate void OutputEventHandler(object sender, string output);
+
         protected override void Enable()
         {
             // Nothing to do here...
         }
 
-        public delegate void OutputEventHandler(object sender, string output);
         public event OutputEventHandler OutputRecieved;
 
         public void WriteLine(string text)

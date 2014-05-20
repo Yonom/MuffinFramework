@@ -53,7 +53,8 @@ namespace MuffinFramework.Tests.LayerBase
             var host = new object();
 
             // act
-            var layerPart = layerBase.TestEnablePart<LayerPartTester<object, object>, object>(host);
+            LayerPartTester<object, object> layerPart =
+                layerBase.TestEnablePart<LayerPartTester<object, object>, object>(host);
 
             // assert
             Assert.IsTrue(layerPart.IsEnabled);
@@ -68,7 +69,8 @@ namespace MuffinFramework.Tests.LayerBase
             layerBase.Enable(null);
 
             // act
-            var layerPart = layerBase.TestEnablePart<LayerPartTester<LayerBaseTester<object>, object>, LayerBaseTester<object>>();
+            LayerPartTester<LayerBaseTester<object>, object> layerPart =
+                layerBase.TestEnablePart<LayerPartTester<LayerBaseTester<object>, object>, LayerBaseTester<object>>();
 
             // assert
             Assert.AreSame(layerBase, layerPart.Host);

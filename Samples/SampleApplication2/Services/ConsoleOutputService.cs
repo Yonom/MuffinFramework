@@ -7,6 +7,7 @@ namespace SampleApplication2.Services
     public class ConsoleOutputService : Service
     {
         private ConsolePlatform _console;
+
         protected override void Enable()
         {
             // This gets the ConsolePlatform instance created by MuffinFramework.

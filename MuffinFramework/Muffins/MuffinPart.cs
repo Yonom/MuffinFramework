@@ -5,9 +5,9 @@ namespace MuffinFramework.Muffins
 {
     public abstract class MuffinPart<TProtocol> : LayerPart<TProtocol, MuffinArgs>
     {
+        protected MuffinLoader MuffinLoader;
         protected PlatformLoader PlatformLoader;
         protected ServiceLoader ServiceLoader;
-        protected MuffinLoader MuffinLoader;
 
         public override sealed void Enable(MuffinArgs args)
         {

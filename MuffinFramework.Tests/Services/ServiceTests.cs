@@ -33,6 +33,6 @@ namespace MuffinFramework.Tests.Services
 
             // assert
             Assert.IsNotNull(platform.TestPlatformLoader);
-        }   
+        }
     }
 }
