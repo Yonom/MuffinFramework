@@ -41,7 +41,7 @@ namespace MuffinFramework
             return this.EnablePart<TPart, TProtocol>(host);
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

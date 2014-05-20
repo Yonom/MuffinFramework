@@ -72,7 +72,7 @@ namespace MuffinFramework
             return this.GetEnumerator();
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);

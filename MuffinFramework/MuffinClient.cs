@@ -70,7 +70,7 @@ namespace MuffinFramework
             this.MuffinLoader.Enable(this.AggregateCatalog, new MuffinArgs(this.PlatformLoader, this.ServiceLoader, this.MuffinLoader));
         }
 
-        public virtual void Dispose()
+        public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
