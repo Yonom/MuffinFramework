@@ -31,7 +31,12 @@ namespace MuffinFramework
         {
             var part = new TPart();
             part.Enable(host, this._args);
-            this._parts.Add(part);
+
+            lock (this._lockObj)
+            {
+                this._parts.Add(part);
+            }
+
             return part;
         }
 
@@ -51,7 +56,14 @@ namespace MuffinFramework
         {
             if (!disposing) return;
 
-            foreach (var part in this._parts) {
+            ILayerBase<TArgs>[] parts;   
+            lock (this._lockObj)
+            {
+                parts = this._parts.ToArray();
+            }
+
+            foreach (var part in parts)
+            {
                 part.Dispose();
             }
         }
