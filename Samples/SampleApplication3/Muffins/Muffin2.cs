@@ -31,12 +31,13 @@ namespace SampleApplication3.Muffins
 
         protected override void Dispose(bool disposing)
         {
-            if (!disposing) return;
+            if (disposing)
+            {
+                // Close the thread.
+                this._writeThread.Abort();
+            }
 
-            base.Dispose();
-
-            // Close the thread.
-            this._writeThread.Abort();
+            base.Dispose(disposing);
         }
     }
 }

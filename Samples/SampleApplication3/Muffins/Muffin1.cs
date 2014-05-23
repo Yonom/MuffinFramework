@@ -29,10 +29,12 @@ namespace SampleApplication3.Muffins
 
         protected override void Dispose(bool disposing)
         {
-            if (!disposing) return;
+            if (disposing)
+            {
+                this.MuffinLoader.EnableComplete -= this.MuffinLoader_EnableComplete;
+            }
 
-            base.Dispose();
-            this.MuffinLoader.EnableComplete -= this.MuffinLoader_EnableComplete;
+            base.Dispose(disposing);
         }
     }
 }

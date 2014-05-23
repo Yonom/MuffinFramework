@@ -1,6 +1,6 @@
 ﻿using System;
 using MuffinFramework;
-using SampleApplication1.Platforms;
+using SampleApplication5.Platforms;
 
 namespace SampleApplication5
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using MuffinFramework.Platforms;
 
-namespace SampleApplication1.Platforms
+namespace SampleApplication5.Platforms
 {
     public class HostPlatform : Platform
     {
