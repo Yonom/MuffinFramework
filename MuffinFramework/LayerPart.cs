@@ -6,7 +6,7 @@ namespace MuffinFramework
     {
         private readonly object _lockObj = new object();
 
-        public TProtocol Host { get; private set; }
+        internal protected TProtocol Host { get; private set; }
 
         public void Enable(TProtocol host, TArgs args)
         {
