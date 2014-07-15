@@ -1,8 +1,14 @@
 ﻿namespace MuffinFramework.Tests.LayerPart
 {
-    class LayerPartTester<TProtocol, TArgs> : LayerPart<TProtocol, TArgs>
+    internal class LayerPartTester<TProtocol, TArgs> : LayerPart<TProtocol, TArgs>
     {
+        public TProtocol TestHost
+        {
+            get { return this.Host; }
+        }
+
         public bool EnableWasCalled;
+
         protected override void Enable()
         {
             this.EnableWasCalled = true;

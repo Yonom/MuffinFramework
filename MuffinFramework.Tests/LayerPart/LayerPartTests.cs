@@ -17,7 +17,7 @@ namespace MuffinFramework.Tests.LayerPart
             layerPart.Enable(host, null);
 
             // assert
-            Assert.AreSame(host, layerPart.Host);
+            Assert.AreSame(host, layerPart.TestHost);
             Assert.IsTrue(layerPart.IsEnabled);
             Assert.IsTrue(layerPart.EnableWasCalled);
         }
@@ -43,7 +43,7 @@ namespace MuffinFramework.Tests.LayerPart
 
             // assert
             Assert.IsNotNull(expectedException);
-            Assert.IsNotNull(layerPart.Host);
+            Assert.IsNotNull(layerPart.TestHost);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace MuffinFramework.Tests.LayerPart
 
             // assert
             Assert.IsTrue(layerPart2.IsEnabled);
-            Assert.AreSame(host, layerPart2.Host);
+            Assert.AreSame(host, layerPart2.TestHost);
         }
 
         [TestMethod]
@@ -73,7 +73,7 @@ namespace MuffinFramework.Tests.LayerPart
             var layerPart2 = layerPart1.TestEnablePart<LayerPartTester<LayerPartTester2<object>, object>>();
 
             // assert
-            Assert.AreSame(layerPart1, layerPart2.Host);
+            Assert.AreSame(layerPart1, layerPart2.TestHost);
         }
     }
 }
