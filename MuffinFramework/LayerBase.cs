@@ -11,6 +11,7 @@ namespace MuffinFramework
         private TArgs _args;
 
         public bool IsEnabled { get; private set; }
+        public bool IsDisposed { get; private set; }
 
         public virtual void Enable(TArgs args)
         {
@@ -51,7 +52,7 @@ namespace MuffinFramework
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
+        
         protected virtual void Dispose(bool disposing)
         {
             if (!disposing) return;
@@ -66,6 +67,8 @@ namespace MuffinFramework
             {
                 part.Dispose();
             }
+
+            this.IsDisposed = true;
         }
     }
 }

@@ -17,6 +17,8 @@ namespace MuffinFramework
         private TLayer[] _importedLayers = null;
         private CompositionContainer _container;
 
+        private List<TLayer> _loadedLayers = new List<TLayer>();
+
         public bool IsEnabled { get; private set; }
 
         public event EventHandler EnableComplete;
@@ -61,11 +63,25 @@ namespace MuffinFramework
             var t = typeof(TType);
             if (this._layers.ContainsKey(t))
                 throw new InvalidOperationException("The given type is already loaded.");
-
+            
             var l = new TType();
+            this._loadedLayers.Add(l);
             l.Enable(this._args);
             this._layers.Add(t, l);
             return l;
+        }
+
+        public TType Insert<TType>(TType instance) where TType : TLayer
+        {
+            var t = typeof(TType);
+            if (this._layers.ContainsKey(t))
+                throw new InvalidOperationException("The given type is already loaded.");
+
+            if (!instance.IsEnabled)
+                throw new ArgumentException("instance has not been enabled.");
+            
+            this._layers.Add(t, instance);
+            return instance;
         }
 
         public TType Get<TType>() where TType : ILayerBase<TArgs>
@@ -107,6 +123,11 @@ namespace MuffinFramework
         protected virtual void Dispose(bool disposing)
         {
             if (!disposing) return;
+            
+            foreach (var layer in this._loadedLayers)
+            {
+                layer.Dispose();
+            }
 
             if (this._container != null)
                 this._container.Dispose();
