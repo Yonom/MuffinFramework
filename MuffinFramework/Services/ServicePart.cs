@@ -31,7 +31,7 @@ namespace MuffinFramework.Services
             private set { this._serviceLoader = value; }
         }
 
-        public override sealed void Enable(ServiceArgs args)
+        public override void Enable(ServiceArgs args)
         {
             this.PlatformLoader = args.PlatformLoader;
             this.ServiceLoader = args.ServiceLoader;

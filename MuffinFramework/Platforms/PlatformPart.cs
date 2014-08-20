@@ -18,7 +18,7 @@ namespace MuffinFramework.Platforms
             private set { this._platformLoader = value; }
         }
 
-        public override sealed void Enable(PlatformArgs args)
+        public override void Enable(PlatformArgs args)
         {
             this.PlatformLoader = args.PlatformLoader;
 
